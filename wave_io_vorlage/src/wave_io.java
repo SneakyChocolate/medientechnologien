@@ -64,7 +64,6 @@ public class wave_io {
             // ********* ToDo ***************
             readWavFile.sound[i] = readWavFile.sound[i * 2];
         }
-        outFilename += "_downsampled.wav";
     }
     private static void bitreduzierung(int n) {
         // 3b Bitreduzierung
@@ -74,7 +73,6 @@ public class wave_io {
             int v = readWavFile.sound[i];
             readWavFile.sound[i] = (short) (v >> n << n);
         }
-        outFilename += "_bitreduced.wav";
     }
     private static void bitreduzierungdiff(int n) {
         // 3e Bitreduzierung Differenz
@@ -85,7 +83,6 @@ public class wave_io {
             int newv = (v >> n << n);
             readWavFile.sound[i] = (short) (newv - v);
         }
-        outFilename += "_bitreduceddiff.wav";
     }
     
     public static void main(String[] argsp) {
@@ -120,6 +117,7 @@ public class wave_io {
                 else if (args[2] == "bitreddif") {
                     bitreduzierungdiff(10);
                 }
+                outFilename += "_" + args[2] + ".wav";
             }
             else {
                 downsample();
