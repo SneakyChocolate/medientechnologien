@@ -56,7 +56,7 @@ public class wave_io {
             e1.printStackTrace();
         }
     }
-    private static void sample2e() {
+    private static void downsample() {
         // 2e Downsampling
         sampleRate /= 2;
         numFrames /= 2;
@@ -66,7 +66,7 @@ public class wave_io {
         }
         outFilename += "_downsampled.wav";
     }
-    private static void sample3b(int n) {
+    private static void bitreduzierung(int n) {
         // 3b Bitreduzierung
         int reduced_bits = 1;
         for (int i = 0; i < samples; i++) {
@@ -76,7 +76,7 @@ public class wave_io {
         }
         outFilename += "_bitreduced.wav";
     }
-    private static void sample3e() {
+    private static void bitreduzierungdiff() {
         // 3e Bitreduzierung Differenz
         int reduced_bits = 1;
         for (int i = 0; i < samples; i++) {
@@ -109,9 +109,9 @@ public class wave_io {
         outFilename = args[1];
         try {
 
-            sample2e();
-            // sample3b(14);
-            // sample3e();
+            downsample();
+            // bitreduzierung(14);
+            // bitreduzierungdiff();
 
             WavFile.write_wav(outFilename, numChannels, numFrames, validBits, sampleRate, readWavFile.sound);
         } catch (Exception e) {
