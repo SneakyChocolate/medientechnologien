@@ -108,19 +108,19 @@ public class wave_io {
         outFilename = args[1];
         try {
             if (args.length == 3) {
-                if (args[2] == "downsample") {
+                if (args[2].compareTo("downsample") == 0) {
                     downsample();
                 }
-                else if (args[2] == "bitred") {
+                else if (args[2].compareTo("bitred") == 0) {
                     bitreduzierung(10);
                 }
-                else if (args[2] == "bitreddif") {
+                else if (args[2].compareTo("bitreddif") == 0) {
                     bitreduzierungdiff(10);
                 }
                 outFilename += "_" + args[2] + ".wav";
             }
             else {
-                downsample();
+                // downsample();
                 // bitreduzierung(10);
                 // bitreduzierungdiff();
             }

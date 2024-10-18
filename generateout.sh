@@ -1,18 +1,22 @@
 #!/bin/bash
 cd wave_io_vorlage &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/Musik_Gruppe4.wav ../abgabe/output/Musik_Gruppe4 downsampled &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/Sprache_Gruppe4.wav ../abgabe/output/Sprache_Gruppe4 downsampled &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/sine_hi05.wav ../abgabe/output/sine_hi05 downsampled &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/sine_lo05.wav ../abgabe/output/sine_lo05 downsampled
 
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/Musik_Gruppe4.wav ../abgabe/output/Musik_Gruppe4 bitred &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/Sprache_Gruppe4.wav ../abgabe/output/Sprache_Gruppe4 bitred &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/sine_hi05.wav ../abgabe/output/sine_hi05 bitred &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/sine_lo05.wav ../abgabe/output/sine_lo05 bitred
+function run() {
+  # $1 = name, $2 = sample
+  javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/$1.wav ../abgabe/output/$1 $2
+}
 
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/Musik_Gruppe4.wav ../abgabe/output/Musik_Gruppe4 bitreddif &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/Sprache_Gruppe4.wav ../abgabe/output/Sprache_Gruppe4 bitreddif &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/sine_hi05.wav ../abgabe/output/sine_hi05 bitreddif &&\
-javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/sine_lo05.wav ../abgabe/output/sine_lo05 bitreddif
+run Musik_Gruppe4 downsample &&\
+run Sprache_Gruppe4 downsample &&\
+run sine_hi05 downsample &&\
+run sine_lo05 downsample &&\
+run Musik_Gruppe4 bitred &&\
+run Sprache_Gruppe4 bitred &&\
+run sine_hi05 bitred &&\
+run sine_lo05 bitred &&\
+run Musik_Gruppe4 bitreddif &&\
+run Sprache_Gruppe4 bitreddif &&\
+run sine_hi05 bitreddif &&\
+run sine_lo05 bitreddif
 
 ls ../abgabe/output
