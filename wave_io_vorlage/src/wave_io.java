@@ -76,12 +76,14 @@ public class wave_io {
         }
         outFilename += "_bitreduced.wav";
     }
-    private static void bitreduzierungdiff() {
+    private static void bitreduzierungdiff(int n) {
         // 3e Bitreduzierung Differenz
         int reduced_bits = 1;
         for (int i = 0; i < samples; i++) {
             // ********* ToDo ***************
-            
+            int v = readWavFile.sound[i];
+            int newv = (v >> n << n);
+            readWavFile.sound[i] = (short) (newv - v);
         }
         outFilename += "_bitreduceddiff.wav";
     }
@@ -108,10 +110,22 @@ public class wave_io {
 
         outFilename = args[1];
         try {
-
-            downsample();
-            // bitreduzierung(14);
-            // bitreduzierungdiff();
+            if (args.length == 3) {
+                if (args[2] == "downsample") {
+                    downsample();
+                }
+                else if (args[2] == "bitred") {
+                    bitreduzierung(10);
+                }
+                else if (args[2] == "bitreddif") {
+                    bitreduzierungdiff(10);
+                }
+            }
+            else {
+                downsample();
+                // bitreduzierung(10);
+                // bitreduzierungdiff();
+            }
 
             WavFile.write_wav(outFilename, numChannels, numFrames, validBits, sampleRate, readWavFile.sound);
         } catch (Exception e) {
