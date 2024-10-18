@@ -6,17 +6,16 @@ function run() {
   javac -d out $(find . -name "*.java") && java -cp out/ wave_io ../abgabe/audio/$1.wav ../abgabe/output/$1 $2
 }
 
-run Musik_Gruppe4 downsample &&\
-run Sprache_Gruppe4 downsample &&\
-run sine_hi05 downsample &&\
-run sine_lo05 downsample &&\
-run Musik_Gruppe4 bitred &&\
-run Sprache_Gruppe4 bitred &&\
-run sine_hi05 bitred &&\
-run sine_lo05 bitred &&\
-run Musik_Gruppe4 bitreddif &&\
-run Sprache_Gruppe4 bitreddif &&\
-run sine_hi05 bitreddif &&\
-run sine_lo05 bitreddif
+function runall() {
+  # $1 = name
+  run $1 downsample &&\
+  run $1 bitred &&\
+  run $1 bitreddif
+}
+
+runall Musik_Gruppe4 &&\
+runall Sprache_Gruppe4 &&\
+runall sine_hi05 &&\
+runall sine_lo05
 
 ls ../abgabe/output
