@@ -11,6 +11,19 @@ public class wave_io {
     private static String inFilename = null;
     private static String outFilename = null;
     private static WavFile readWavFile = null;
+
+    private static double sine_f(short[] audioValues, int rate) {
+        boolean start = audioValues[0] > 0;
+        int intersections = 1;
+        for (int i = 0; i < audioValues.length; i ++) {
+            if (start != audioValues[i] > 0) {
+                intersections ++;
+                start = audioValues[i] > 0;
+            }
+        }
+        return intersections / 2 * rate / audioValues.length;
+        // return intersections;
+    }
     
     private static void sample2a() {
         try {
@@ -26,9 +39,12 @@ public class wave_io {
             // 2a Samples schreiben
             for (int i = 0; i < samples; i++) {
                 // ********* ToDo ***************
-                // praat nachgcuekn, durch 5 und durch 3.2 teilen
-                System.out.println(readWavFile.sound[i]);
+                // sine hi - 7000 hz (praat)
+                System.out.print(readWavFile.sound[i] + ",");
             }
+
+            short[] values = new short[]{-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196,3196,9102,13623,16069,16069,13623,9102,3196,-3196,-9102,-13623,-16069,-16069,-13623,-9102,-3196};
+            System.out.println(sine_f(values, 16000));
 
             if (args.length == 1)
                 System.exit(0);
