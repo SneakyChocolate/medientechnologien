@@ -26,6 +26,8 @@ public class wave_io {
             // 2a Samples schreiben
             for (int i = 0; i < samples; i++) {
                 // ********* ToDo ***************
+                // praat nachgcuekn, durch 5 und durch 3.2 teilen
+                System.out.println(readWavFile.sound[i]);
             }
 
             if (args.length == 1)
