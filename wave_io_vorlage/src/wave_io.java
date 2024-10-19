@@ -112,15 +112,15 @@ public class wave_io {
                     downsample();
                 }
                 else if (args[2].compareTo("bitred") == 0) {
-                    bitreduzierung(10);
+                    bitreduzierung(8);
                 }
                 else if (args[2].compareTo("bitreddif") == 0) {
-                    bitreduzierungdiff(10);
+                    bitreduzierungdiff(8);
                 }
                 outFilename += "_" + args[2] + ".wav";
             }
             else {
-                // downsample();
+                downsample();
                 // bitreduzierung(10);
                 // bitreduzierungdiff();
             }
