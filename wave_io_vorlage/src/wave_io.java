@@ -85,7 +85,7 @@ public class wave_io {
       // ********* ToDo ***************
       int v = readWavFile.sound[i];
       int newv = (v >> n << n);
-      int diff = newv - v;
+      int diff = Math.abs(v - newv);
       readWavFile.sound[i] = (short) (diff << n);
     }
   }
