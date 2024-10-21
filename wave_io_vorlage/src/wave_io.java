@@ -86,6 +86,7 @@ public class wave_io {
       int v = readWavFile.sound[i];
       int newv = (v >> n << n);
       int diff = Math.abs(v - newv);
+      // man hoert nichts aber in praat sieht man die frequenzen
       readWavFile.sound[i] = (short) (diff << n);
     }
   }
