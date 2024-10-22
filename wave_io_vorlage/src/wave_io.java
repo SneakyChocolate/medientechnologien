@@ -119,7 +119,7 @@ public class wave_io {
         } else if (args[2].compareTo("bitred") == 0) {
           bitreduzierung(8);
         } else if (args[2].compareTo("bitreddif") == 0) {
-          bitreduzierungdiff(1);
+          bitreduzierungdiff(10);
         }
         outFilename += "_" + args[2] + ".wav";
       } else {
