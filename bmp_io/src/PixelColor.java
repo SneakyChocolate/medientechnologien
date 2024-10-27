@@ -1,8 +1,8 @@
 
 public class PixelColor {
-	int r;
-	int b;
-	int g;
+	public int r;
+	public int b;
+	public int g;
 	
 	public PixelColor(int r, int g, int b) {
 		this.r = r;

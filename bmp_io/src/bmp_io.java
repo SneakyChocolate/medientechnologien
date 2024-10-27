@@ -35,7 +35,7 @@ public final class bmp_io {
         // BGR schreiben vertikal 2.1.
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             // ********* ToDone ***************
-            var pixel =bmp.image.getRgbPixel(0, y);
+            var pixel = bmp.image.getRgbPixel(0, y);
             System.out.println(pixel.toString());
         }
 
@@ -50,9 +50,9 @@ public final class bmp_io {
         // erzeuge graustufenbild
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-
                 // ********* TODO ***************
-
+                var pixel = bmp.image.getRgbPixel(0, y);
+                var nv = 0.3 * pixel.r;
             }
         }
 
