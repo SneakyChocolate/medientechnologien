@@ -5,91 +5,91 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public final class bmp_io {
-	
-	public static void main(String[] args) throws IOException {
-		String inFilename = null;
-		String outFilename = null;
-		PixelColor pc = null;
-		BmpImage bmp = null;
-		
-		if (args.length < 1) {
+    public static String inFilename = null;
+    public static String outFilename = null;
+    public static PixelColor pc = null;
+    public static BmpImage bmp = null;
+    public static InputStream in;
+
+    public static void main(String[] args) throws IOException {
+
+        if (args.length < 1) {
             throw new IOException("At least one filename specified  (" + args.length + ")");
         }
-		
-		// Zugriff auf Pixel mit bmp.image.getRgbPixel(x, y);		
 
-		// Implementierung bei einem Eingabeparamter
-		
-		inFilename = args[0];
-		InputStream in = new FileInputStream(inFilename);
-		bmp = BmpReader.read_bmp(in);
-		
-		// BGR schreiben horizontal 2.1.	
-    		for(int x = 0; x < bmp.image.getWidth(); x++) {
-    	
+        // Zugriff auf Pixel mit bmp.image.getRgbPixel(x, y);
 
-    		// ********* ToDo ***************
-		}
+        // Implementierung bei einem Eingabeparamter
 
-		// BGR schreiben vertikal 2.1.	
-    		for(int y = 0; y < bmp.image.getHeight(); y++) {
+        inFilename = args[0];
+        in = new FileInputStream(inFilename);
+        bmp = BmpReader.read_bmp(in);
 
-    		// ********* ToDo ***************
-    		
-    		}
+        // BGR schreiben horizontal 2.1.
+        for (int x = 0; x < bmp.image.getWidth(); x++) {
+            // ********* ToDone ***************
+            var pixel = bmp.image.getRgbPixel(x, 0);
+            System.out.println(pixel.toString());
+        }
 
-	    if (args.length == 1) 
-			System.exit(0);
+        // BGR schreiben vertikal 2.1.
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            // ********* ToDone ***************
+            var pixel =bmp.image.getRgbPixel(0, y);
+            System.out.println(pixel.toString());
+        }
 
-		
-		// Implementierung bei Ein- und Ausgabeparamter
+        if (args.length == 1)
+            System.exit(0);
 
-		outFilename = args[1];
-		OutputStream out = new FileOutputStream(outFilename);
-		
-		// erzeuge graustufenbild
-		for(int y = 0; y < bmp.image.getHeight(); y++) {
-			for(int x = 0;x < bmp.image.getWidth(); x++) {
-			
-				// ********* ToDo ***************
-				
-			}
-		}
-		
-		// downsampling
-		for(int y = 0; y < bmp.image.getHeight(); y++) {
-			for(int x = 0; x < bmp.image.getWidth(); x++) {
-		
-				// ********* ToDo ***************
-				
-			}
-		}
-		
-		// bitreduzierung
-		int reduced_bits = 1;
-		for(int y = 0; y < bmp.image.getHeight(); y++) {
-			for (int x = 0; x < bmp.image.getWidth(); x++) {
-		
-				// ********* ToDo ***************
-			
-			}
-		}
-		
-		// bitreduzierung differenz
-		reduced_bits = 1;
-		int bitsPerColor = 8;
-		for(int y = 0; y < bmp.image.getHeight(); y++) {
-			for (int x = 0; x < bmp.image.getWidth(); x++) {
+        // Implementierung bei Ein- und Ausgabeparamter
 
-				// ********* ToDo ***************
-				
-			}
-		}
-		
-		try {
-			BmpWriter.write_bmp(out, bmp);
-		} finally {
-			out.close();
-		}
-	}
+        outFilename = args[1];
+        OutputStream out = new FileOutputStream(outFilename);
+
+        // erzeuge graustufenbild
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+
+                // ********* TODO ***************
+
+            }
+        }
+
+        // downsampling
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+
+                // ********* TODO ***************
+
+            }
+        }
+
+        // bitreduzierung
+        int reduced_bits = 1;
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+
+                // ********* TODO ***************
+
+            }
+        }
+
+        // bitreduzierung differenz
+        reduced_bits = 1;
+        int bitsPerColor = 8;
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+
+                // ********* TODO ***************
+
+            }
+        }
+
+        try {
+            BmpWriter.write_bmp(out, bmp);
+        } finally {
+            out.close();
+        }
+    }
 }

@@ -9,4 +9,9 @@ public class PixelColor {
 		this.b = b;
 		this.g = g;
 	}
+
+    @Override
+    public String toString() {
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
 }
