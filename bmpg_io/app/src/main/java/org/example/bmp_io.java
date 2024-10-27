@@ -29,14 +29,14 @@ public final class bmp_io {
 
         // BGR schreiben horizontal 2.1.
         for (int x = 0; x < bmp.image.getWidth(); x++) {
-            // ********* ToDone ***************
+            // ********* Done ***************
             var pixel = bmp.image.getRgbPixel(x, 0);
             System.out.println(pixel.toString());
         }
 
         // BGR schreiben vertikal 2.1.
         for (int y = 0; y < bmp.image.getHeight(); y++) {
-            // ********* ToDone ***************
+            // ********* Done ***************
             var pixel = bmp.image.getRgbPixel(0, y);
             System.out.println(pixel.toString());
         }
