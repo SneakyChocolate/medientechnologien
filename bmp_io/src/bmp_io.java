@@ -52,7 +52,7 @@ public final class bmp_io {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* TODO ***************
                 var pixel = bmp.image.getRgbPixel(0, y);
-                var nv = 0.3 * pixel.r;
+                var nv = 0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b;
             }
         }
 
