@@ -65,7 +65,7 @@ public final class bmp_io {
         bmp.verticalResolution = rgbImage.height;
     }
     public static void bitreducing() {
-        int reduced_bits = 5;
+        int reduced_bits = 6;
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
@@ -89,12 +89,12 @@ public final class bmp_io {
         bmp.verticalResolution = rgbImage.height;
     }
     public static void bitreducingdif() {
-        int reduced_bits = 6;
+        int reduced_bits = 3;
         int bitsPerColor = 8;
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* TODO use bitsPerColor ***************
+                // ********* Done ***************
                 var pixel = bmp.image.getRgbPixel(x, y);
                 var newpixel = new PixelColor(
                     (pixel.r >> reduced_bits) << reduced_bits,
@@ -106,9 +106,9 @@ public final class bmp_io {
                     System.out.println(newpixel.toString());
                 }
                 var difpixel = new PixelColor(
-                    (pixel.r - newpixel.r) << reduced_bits,
-                    (pixel.g - newpixel.g) << reduced_bits,
-                    (pixel.b - newpixel.b) << reduced_bits
+                    (pixel.r - newpixel.r) << (bitsPerColor - reduced_bits),
+                    (pixel.g - newpixel.g) << (bitsPerColor - reduced_bits),
+                    (pixel.b - newpixel.b) << (bitsPerColor - reduced_bits)
                 );
                 rgbImage.setRgbPixel(x, y, difpixel);
             }
