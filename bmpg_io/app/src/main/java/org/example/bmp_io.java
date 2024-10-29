@@ -48,7 +48,7 @@ public final class bmp_io {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* TODO ***************
+                // ********* Done ***************
                 if (x % 2 == 0) {
                     var pixel = bmp.image.getRgbPixel(x, y);
                     rgbImage.setRgbPixel(x, y, pixel);
@@ -69,7 +69,7 @@ public final class bmp_io {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* TODO ***************
+                // ********* Done ***************
                 var pixel = bmp.image.getRgbPixel(x, y);
                 var newpixel = new PixelColor(
                     (pixel.r >> reduced_bits) << reduced_bits,
@@ -94,7 +94,7 @@ public final class bmp_io {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* TODO ***************
+                // ********* TODO use bitsPerColor ***************
                 var pixel = bmp.image.getRgbPixel(x, y);
                 var newpixel = new PixelColor(
                     (pixel.r >> reduced_bits) << reduced_bits,
@@ -106,9 +106,9 @@ public final class bmp_io {
                     System.out.println(newpixel.toString());
                 }
                 var difpixel = new PixelColor(
-                    (pixel.r - newpixel.r) * (int) Math.pow(2, reduced_bits),
-                    (pixel.g - newpixel.g) * (int) Math.pow(2, reduced_bits),
-                    (pixel.b - newpixel.b) * (int) Math.pow(2, reduced_bits)
+                    (pixel.r - newpixel.r) << reduced_bits,
+                    (pixel.g - newpixel.g) << reduced_bits,
+                    (pixel.b - newpixel.b) << reduced_bits
                 );
                 rgbImage.setRgbPixel(x, y, difpixel);
             }
