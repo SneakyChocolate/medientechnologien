@@ -95,14 +95,34 @@ public final class bmp_io {
         outFilename = args[1];
         OutputStream out = new FileOutputStream(outFilename);
 
-        // erzeuge graustufenbild
-        graustufen();
-        // downsampling
-        downsampling();
-        // bitreduzierung
-        bitreducing();
-        // bitreduzierung differenz
-        bitreducingdif();
+        if (args.length == 3) {
+            // erzeuge graustufenbild
+            if (args[2].compareTo("graustufen") == 0) {
+                graustufen();
+            }
+            // downsampling
+            else if (args[2].compareTo("downsampling") == 0) {
+                downsampling();
+            }
+            // bitreduzierung
+            else if (args[2].compareTo("bitreducing") == 0) {
+                bitreducing();
+            }
+            // bitreduzierung differenz
+            else if (args[2].compareTo("bitreducingdif") == 0) {
+                bitreducingdif();
+            }
+        }
+        else {
+            // erzeuge graustufenbild
+            graustufen();
+            // downsampling
+            downsampling();
+            // bitreduzierung
+            bitreducing();
+            // bitreduzierung differenz
+            bitreducingdif();
+        }
         
         try {
             BmpWriter.write_bmp(out, bmp);

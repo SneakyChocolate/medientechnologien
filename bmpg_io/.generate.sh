@@ -1,0 +1,7 @@
+
+gradlerun() {
+  gradle run --args="../../abgabe/pics/$1.bmp ../../abgabe/output-images/$1$2.bmp $2"
+}
+
+gradlerun Nature_Gruppe4 graustufen
+gradlerun Manmade_Gruppe4 graustufen
