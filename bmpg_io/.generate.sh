@@ -5,3 +5,6 @@ gradlerun() {
 
 gradlerun Nature_Gruppe4 graustufen
 gradlerun Manmade_Gruppe4 graustufen
+
+gradlerun Nature_Gruppe4 downsampling
+gradlerun Manmade_Gruppe4 downsampling

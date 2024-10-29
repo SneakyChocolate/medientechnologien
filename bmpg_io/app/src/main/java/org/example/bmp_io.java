@@ -45,11 +45,24 @@ public final class bmp_io {
         bmp.verticalResolution = rgbImage.height;
     }
     public static void downsampling() {
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* TODO ***************
+                if (x % 2 == 0) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    rgbImage.setRgbPixel(x, y, pixel);
+                }
+                else {
+                    var pixel = bmp.image.getRgbPixel(x - 1, y);
+                    rgbImage.setRgbPixel(x, y, pixel);
+                }
             }
         }
+        bmp = new BmpImage();
+        bmp.image = rgbImage;
+        bmp.horizontalResolution = rgbImage.width;
+        bmp.verticalResolution = rgbImage.height;
     }
     public static void bitreducing() {
         int reduced_bits = 1;
