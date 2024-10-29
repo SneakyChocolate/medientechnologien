@@ -32,7 +32,7 @@ public final class bmp_io {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* TODO ***************
+                // ********* Done ***************
                 var pixel = bmp.image.getRgbPixel(x, y);
                 var nv = (int) (0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b);
                 var newpixel = new PixelColor(nv, nv, nv);
