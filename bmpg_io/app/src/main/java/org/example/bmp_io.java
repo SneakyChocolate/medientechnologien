@@ -65,17 +65,21 @@ public final class bmp_io {
         bmp.verticalResolution = rgbImage.height;
     }
     public static void bitreducing() {
-        int reduced_bits = 10;
+        int reduced_bits = 5;
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* TODO ***************
                 var pixel = bmp.image.getRgbPixel(x, y);
                 var newpixel = new PixelColor(
-                    (pixel.r << reduced_bits) >> reduced_bits,
-                    (pixel.g << reduced_bits) >> reduced_bits,
-                    (pixel.b << reduced_bits) >> reduced_bits
+                    (pixel.r >> reduced_bits) << reduced_bits,
+                    (pixel.g >> reduced_bits) << reduced_bits,
+                    (pixel.b >> reduced_bits) << reduced_bits
                 );
+                if (x == 0 && y == 0) {
+                    System.out.println(pixel.toString());
+                    System.out.println(newpixel.toString());
+                }
                 rgbImage.setRgbPixel(x, y, newpixel);
             }
         }
