@@ -13,6 +13,21 @@ public final class bmp_io {
     public static BmpImage bmp = null;
     public static InputStream in;
 
+    public static void readrgb() {
+        // BGR schreiben horizontal 2.1.
+        for (int x = 0; x < bmp.image.getWidth(); x++) {
+            // ********* Done ***************
+            var pixel = bmp.image.getRgbPixel(x, 0);
+            System.out.println(pixel.toString());
+        }
+
+        // BGR schreiben vertikal 2.1.
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            // ********* Done ***************
+            var pixel = bmp.image.getRgbPixel(0, y);
+            System.out.println(pixel.toString());
+        }
+    }
     public static void graustufen() {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
@@ -70,19 +85,7 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         bmp = BmpReader.read_bmp(in);
 
-        // BGR schreiben horizontal 2.1.
-        for (int x = 0; x < bmp.image.getWidth(); x++) {
-            // ********* Done ***************
-            var pixel = bmp.image.getRgbPixel(x, 0);
-            // System.out.println(pixel.toString());
-        }
-
-        // BGR schreiben vertikal 2.1.
-        for (int y = 0; y < bmp.image.getHeight(); y++) {
-            // ********* Done ***************
-            var pixel = bmp.image.getRgbPixel(0, y);
-            // System.out.println(pixel.toString());
-        }
+        // readrgb();
 
         if (args.length == 1)
             System.exit(0);
@@ -94,16 +97,13 @@ public final class bmp_io {
 
         // erzeuge graustufenbild
         graustufen();
-
         // downsampling
         downsampling();
-
         // bitreduzierung
         bitreducing();
-
         // bitreduzierung differenz
         bitreducingdif();
-
+        
         try {
             BmpWriter.write_bmp(out, bmp);
         } finally {
