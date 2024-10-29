@@ -13,6 +13,49 @@ public final class bmp_io {
     public static BmpImage bmp = null;
     public static InputStream in;
 
+    public static void graustufen() {
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* TODO ***************
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var nv = (int) (0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b);
+                var newpixel = new PixelColor(nv, nv, nv);
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+        bmp = new BmpImage();
+        bmp.image = rgbImage;
+        bmp.horizontalResolution = rgbImage.width;
+        bmp.verticalResolution = rgbImage.height;
+    }
+    public static void downsampling() {
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* TODO ***************
+            }
+        }
+    }
+    public static void bitreducing() {
+        int reduced_bits = 1;
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* TODO ***************
+            }
+        }
+    }
+    public static void bitreducingdif() {
+        int reduced_bits = 1;
+        int bitsPerColor = 8;
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+
+                // ********* TODO ***************
+
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
         if (args.length < 1) {
@@ -31,14 +74,14 @@ public final class bmp_io {
         for (int x = 0; x < bmp.image.getWidth(); x++) {
             // ********* Done ***************
             var pixel = bmp.image.getRgbPixel(x, 0);
-            System.out.println(pixel.toString());
+            // System.out.println(pixel.toString());
         }
 
         // BGR schreiben vertikal 2.1.
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             // ********* Done ***************
             var pixel = bmp.image.getRgbPixel(0, y);
-            System.out.println(pixel.toString());
+            // System.out.println(pixel.toString());
         }
 
         if (args.length == 1)
@@ -50,43 +93,16 @@ public final class bmp_io {
         OutputStream out = new FileOutputStream(outFilename);
 
         // erzeuge graustufenbild
-        for (int y = 0; y < bmp.image.getHeight(); y++) {
-            for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* TODO ***************
-                var pixel = bmp.image.getRgbPixel(0, y);
-                var nv = 0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b;
-            }
-        }
+        graustufen();
 
         // downsampling
-        for (int y = 0; y < bmp.image.getHeight(); y++) {
-            for (int x = 0; x < bmp.image.getWidth(); x++) {
-
-                // ********* TODO ***************
-
-            }
-        }
+        downsampling();
 
         // bitreduzierung
-        int reduced_bits = 1;
-        for (int y = 0; y < bmp.image.getHeight(); y++) {
-            for (int x = 0; x < bmp.image.getWidth(); x++) {
-
-                // ********* TODO ***************
-
-            }
-        }
+        bitreducing();
 
         // bitreduzierung differenz
-        reduced_bits = 1;
-        int bitsPerColor = 8;
-        for (int y = 0; y < bmp.image.getHeight(); y++) {
-            for (int x = 0; x < bmp.image.getWidth(); x++) {
-
-                // ********* TODO ***************
-
-            }
-        }
+        bitreducingdif();
 
         try {
             BmpWriter.write_bmp(out, bmp);
