@@ -109,6 +109,17 @@
     <img src="./output-images/Manmade_Gruppe4_graustufen_.bmp" alt="">
     <img src="./output-images/Nature_Gruppe4_graustufen_.bmp" alt="">
 
+    <pre>
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var nv = (int) (0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b);
+                var newpixel = new PixelColor(nv, nv, nv);
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    </pre>
 
     <br>
     <h3>Aufgabe 2.4</h3>
@@ -185,6 +196,17 @@
         </div>
     </div>
 
+    <pre>
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var nx = x - (x % pixels);
+                var pixel = bmp.image.getRgbPixel(nx, y);
+                rgbImage.setRgbPixel(x, y, pixel);
+            }
+        }
+    </pre>
+
     <br>
     <br>
     <h3>Aufgabe 3.2</h3>
@@ -252,6 +274,25 @@
         </div>
     </div>
 
+    <pre>
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    (pixel.r >> reduced_bits) << reduced_bits,
+                    (pixel.g >> reduced_bits) << reduced_bits,
+                    (pixel.b >> reduced_bits) << reduced_bits
+                );
+                if (x == 0 && y == 0) {
+                    System.out.println(pixel.toString());
+                    System.out.println(newpixel.toString());
+                }
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    </pre>
+
     <br>
     <h3>Aufgabe 3.2</h3>
     Bitreduktions Differnez Bilder:<br>
@@ -313,4 +354,3 @@
 </body>
 
 </html>
-
