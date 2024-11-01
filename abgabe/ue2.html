@@ -3,15 +3,20 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="format.css">
 <style type="text/css">
-        <!--
-                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+
+                a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
                 a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
                 a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
-        //-->
+
+                img {width: 200px;}
+
+                #Koalabaer {position: fixed; opacity: 3%; margin: 0; width: 100%; height: 100%;}
+
 </style>
 </head>
 
 <body>
+<img src="./pics/Koala.jpg" id="Koalabaer" width="150" height="100">
 
 <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
          <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
@@ -19,44 +24,63 @@
 </iframe>
 
 <h2>Uebung 2</h2>
-<br><h3>Aufgabe 1 - 1.1</h3>
-<table><tr>
-<td><img src="./pics/Koala.jpg" alt="Koalabaer auf dem Baum" width="350" height="300"></td>
-<td><img src="./pics/Penguins.jpg" alt="Penguins auf dem Eis" width="350" height="300"></td>
-</tr></table>
-<p>Bescheibung</p>
-<p>Loesung</p>
+
+
+
+Original Bilder:
+        <img src="./pics/Manmade_Gruppe4.bmp" alt="">
+        <img src="./pics/Nature_Gruppe4.bmp" alt="">
+
 
 <p>Aufgabe 1</p>
-<p>Loesung</p>
+        <p>Loesung</p>
 
 <br><h3>Aufgabe 2.1</h3>
-<img src="./pics/stadt.png" alt="Marsch &uuml;ber die Stra&szlig;e" width="450" height="300">
-<p>Bescheibung</p>
-<p>Loesung</p>
+        <p>Bescheibung</p>
+        <p>Loesung</p>
 
 <br><h3>Aufgabe 2.2</h3>
-<p>Bei Bildern versucht man ein analoges Signal (echtes Bild) in ein digitales Signal (Bild auf Gerät) umzuwandeln. <br>
+        <p>Bei Bildern versucht man ein analoges Signal (echtes Bild) in ein digitales Signal (Bild auf Gerät) umzuwandeln. <br>
         damit es dabei nicht zum Informationsverlust kommt, mus man das Abtasttheorem einhalten.</p>
+        
 
 <br><h3>Aufgabe 2.3</h3>
-<p>Dadurch, dass beim Downsampiling pixel überschrieben werden, gehen viele Informationen verloren. Vier Pixel enthalten somit am ende nur die Informationen von einem</p>
+        <p>Dadurch, dass beim Downsampiling pixel überschrieben werden, gehen viele Informationen verloren. Vier Pixel enthalten somit am ende nur die Informationen von einem</p>
+        <img src="./output-images/Manmade_Gruppe4graustufen.bmp" alt="">
+        <img src="./output-images/Nature_Gruppe4graustufen.bmp" alt="">
+
 
 <br><h3>Aufgabe 2.4</h3>
-<p>Aliasing tritt auf, wenn die räumliche Auflösung zu niedrig ist, um feine Muster zu erfassen, was zum Moiré-Muster führt. 
+        <p>Aliasing tritt auf, wenn die räumliche Auflösung zu niedrig ist, um feine Muster zu erfassen, was zum Moiré-Muster führt. 
         Bei Videos entsteht Aliasing, wenn die Abtastfrequenz der Bildfolgen zu niedrig ist, wodurch visuelle Verzerrungen auftreten.</p>
+        
 
 <br><h3>Aufgabe 2.5</h3>
-<p>Das Bild wird verpixelt und die Veränderungen sind bei Nature sichtbarer als bei man-made. 
+        <p>Das Bild wird verpixelt und die Veränderungen sind bei Nature sichtbarer als bei man-made. 
         Das man-made Bild sieht im Original schon sehr rauschend aus, dadurch merkt man die Verpixelung nicht so stark.</p>
 
+        Downsampiling Bilder:
+        <img src="./output-images/Manmade_Gruppe4downsampling.bmp" alt="">
+        <img src="./output-images/Nature_Gruppe4downsampling.bmp" alt="">
+        
+
 <br><h3>Aufgabe 3.2</h3>
-<p>Man erkennt bei von Man-Made Bildern ruckartige RGB-Veränderungen, 
+        <p>Man erkennt bei von Man-Made Bildern ruckartige RGB-Veränderungen, 
         da die Übergänge dort nicht so fein sind. Bei den Nature Bildern hingegen gibt es sanfte Farbverläufe, 
         die bei der Bitreduktion fast verschwinden. Deshalb fallen Bitveränderungen vor allem in den Nature Bildern auf.<br>
         <br>
         Wie kann man die Verschlechterung beschreiben?:<br>
         Durch die Bitreduktion hat man weniger Farben im Bild.</p> 
 
+        Bitreduktions Bilder:
+        <img src="./output-images/Manmade_Gruppe4bitreducing.bmp" alt="">
+        <img src="./output-images/Nature_Gruppe4bitreducing.bmp" alt="">
+        
+
+<br><h3>Aufgabe 3.2</h3>
+        Bitreduktions Differnez Bilder:
+        <img src="./output-images/Manmade_Gruppe4bitreducingdif.bmp" alt="">
+        <img src="./output-images/Nature_Gruppe4bitreducingdif.bmp" alt="">
+                
 </body>
 </html>
