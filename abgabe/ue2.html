@@ -1,135 +1,267 @@
 <html>
+
 <head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="format.css">
-<style type="text/css">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="format.css">
+    <style type="text/css">
+        a:link {
+            font-family: Arial;
+            font-size: 10pt;
+            text-decoration: none;
+        }
 
-                a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
-                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
-                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        a:visited {
+            font-family: Arial;
+            font-size: 10pt;
+            text-decoration: none;
+        }
 
-                img {width: 400px;}
+        a:hover {
+            color: #FF3333;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 10pt;
+        }
 
-                #Koalabaer {position: fixed; opacity: 1%; margin: 0; width: 100%; height: 100%;}
+        img {
+            width: 400px;
+        }
 
-                .img1 {width: 18%;}
+        #Koalabaer {
+            position: fixed;
+            opacity: 1%;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-</style>
+        .img1 {
+            width: 22%;
+        }
+    </style>
 </head>
 
 <body>
-<img src="./pics/Koala.jpg" id="Koalabaer" width="150" height="100">
+    <img src="./pics/Koala.jpg" id="Koalabaer" width="150" height="100">
 
-<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
-         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
-         folgenden.</p>
-</iframe>
+    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+        <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber
+            den
+            folgenden.</p>
+    </iframe>
 
-<h2>Übung 2</h2>
-
-
-
-Original Bilder:<br>
-        <img src="./pics/Manmade_Gruppe4.bmp" alt="">
-        <img src="./pics/Nature_Gruppe4.bmp" alt="">
+    <h2>Übung 2</h2>
 
 
-<p>Aufgabe 1</p>
-        <p>Loesung</p>
 
-<br><h3>Aufgabe 2.1</h3>
-        <p>Bescheibung</p>
-        <p>Loesung</p>
-
-<br><h3>Aufgabe 2.2</h3>
-        <p>Bei Bildern versucht man ein analoges Signal (echtes Bild) in ein digitales Signal (Bild auf Gerät) umzuwandeln. <br>
-        damit es dabei nicht zum Informationsverlust kommt, mus man das Abtasttheorem einhalten.</p>
-        
-
-<br><h3>Aufgabe 2.3</h3>
-        <p>Dadurch, dass beim Downsampiling pixel überschrieben werden, gehen viele Informationen verloren. Vier Pixel enthalten somit am ende nur die Informationen von einem</p>
-        Graustufen Bilder:<br>
-        <img src="./output-images/Manmade_Gruppe4_graustufen_.bmp" alt="">
-        <img src="./output-images/Nature_Gruppe4_graustufen_.bmp" alt="">
+    Original Bilder:<br>
+    <img src="./pics/Manmade_Gruppe4.bmp" alt="">
+    <img src="./pics/Nature_Gruppe4.bmp" alt="">
 
 
-<br><h3>Aufgabe 2.4</h3>
-        <p>Aliasing tritt auf, wenn die räumliche Auflösung zu niedrig ist, um feine Muster zu erfassen, was zum Moiré-Muster führt. 
-        Bei Videos entsteht Aliasing, wenn die Abtastfrequenz der Bildfolgen zu niedrig ist, wodurch visuelle Verzerrungen auftreten.</p>
-        
+    <p>Aufgabe 1</p>
+    <img src="./pics/grating_V8.bmp" alt="">
+    Vertikal: <br>
+    <p>rgb(0,0,0)
+        rgb(12,12,12)
+        rgb(43,43,43)
+        rgb(90,90,90)
+        rgb(142,142,142)
+        rgb(192,192,192)
+        rgb(231,231,231)
+        rgb(252,252,252)
+        rgb(251,251,251)
+        rgb(228,228,228)
+        rgb(188,188,188)
+        rgb(137,137,137)
+        rgb(84,84,84)
+        rgb(39,39,39)
+        rgb(9,9,9)</p>
 
-<br><h3>Aufgabe 2.5</h3>
-        <p>Das Bild wird verpixelt und die Veränderungen sind bei Nature sichtbarer als bei man-made. 
-        Das man-made Bild sieht im Original schon sehr rauschend aus, dadurch merkt man die Verpixelung nicht so stark.</p>
+    Horizontal: <br>
+    rgb(243,243,243) <br>
 
-        Downsampiling Bilder:<br>
-        <img src="./output-images/Manmade_Gruppe4_downsampling_2.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_3.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_4.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_5.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_6.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_7.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_8.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_9.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+    <img src="./pics/grating_H8.bmp" alt="">
+    Vertikal: <br>
+    Horizontal: <br>
+
+
+    <br>
+    <h3>Aufgabe 2.1</h3>
+    <p>Bescheibung</p>
+    <p>Loesung</p>
+
+    <br>
+    <h3>Aufgabe 2.2</h3>
+    <p>Bei Bildern versucht man ein analoges Signal (echtes Bild) in ein digitales Signal (Bild auf Gerät) umzuwandeln.
         <br>
-        <img src="./output-images/Nature_Gruppe4_downsampling_2.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_3.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_4.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_5.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_6.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_7.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_8.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_9.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+        damit es dabei nicht zum Informationsverlust kommt, mus man das Abtasttheorem einhalten.</p>
 
-<br>
-<br><h3>Aufgabe 3.2</h3>
-        <p>Man erkennt bei von Man-Made Bildern ruckartige RGB-Veränderungen, 
-        da die Übergänge dort nicht so fein sind. Bei den Nature Bildern hingegen gibt es sanfte Farbverläufe, 
-        die bei der Bitreduktion fast verschwinden. Deshalb fallen Bitveränderungen vor allem in den Nature Bildern auf.<br>
+
+    <br>
+    <h3>Aufgabe 2.3</h3>
+    <p>Dadurch, dass beim Downsampiling pixel überschrieben werden, gehen viele Informationen verloren. Vier Pixel
+        enthalten somit am ende nur die Informationen von einem</p>
+    Graustufen Bilder:<br>
+    <img src="./output-images/Manmade_Gruppe4_graustufen_.bmp" alt="">
+    <img src="./output-images/Nature_Gruppe4_graustufen_.bmp" alt="">
+
+    <pre>
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var nv = (int) (0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b);
+                var newpixel = new PixelColor(nv, nv, nv);
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+        </pre>
+
+
+    <br>
+    <h3>Aufgabe 2.4</h3>
+    <p>Aliasing tritt auf, wenn die räumliche Auflösung zu niedrig ist, um feine Muster zu erfassen, was zum
+        Moiré-Muster führt.
+        Bei Videos entsteht Aliasing, wenn die Abtastfrequenz der Bildfolgen zu niedrig ist, wodurch visuelle
+        Verzerrungen auftreten.</p>
+
+
+    <br>
+    <h3>Aufgabe 2.5</h3>
+    <p>Das Bild wird verpixelt und die Veränderungen sind bei Nature sichtbarer als bei man-made.
+        Das man-made Bild sieht im Original schon sehr rauschend aus, dadurch merkt man die Verpixelung nicht so stark.
+    </p>
+
+    Downsampiling Bilder:<br>
+    <!-- <img src="./output-images/Manmade_Gruppe4_downsampling_2.bmp" alt="" class="img1"> -->
+    <img src="./output-images/Manmade_Gruppe4_downsampling_3.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_4.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_5.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_6.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_7.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_8.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_9.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+    <br>
+    <!-- <img src="./output-images/Nature_Gruppe4_downsampling_2.bmp" alt="" class="img1"> -->
+    <img src="./output-images/Nature_Gruppe4_downsampling_3.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_4.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_5.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_6.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_7.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_8.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_9.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+
+    <pre>
+                RgbImage rgbImage = new RgbImage(960, 540, 24);
+                for (int y = 0; y < bmp.image.getHeight(); y++) {
+                    for (int x = 0; x < bmp.image.getWidth(); x++) {
+                        var nx = x - (x % pixels);
+                        var pixel = bmp.image.getRgbPixel(nx, y);
+                        rgbImage.setRgbPixel(x, y, pixel);
+                    }
+                }
+        </pre>
+
+    <br>
+    <br>
+    <h3>Aufgabe 3.2</h3>
+    <p>Man erkennt bei von Man-Made Bildern ruckartige RGB-Veränderungen,
+        da die Übergänge dort nicht so fein sind. Bei den Nature Bildern hingegen gibt es sanfte Farbverläufe,
+        die bei der Bitreduktion fast verschwinden. Deshalb fallen Bitveränderungen vor allem in den Nature Bildern
+        auf.<br>
         <br>
         Wie kann man die Verschlechterung beschreiben?:<br>
-        Durch die Bitreduktion hat man weniger Farben im Bild.</p> 
+        Durch die Bitreduktion hat man weniger Farben im Bild.
+    </p>
 
-        Bitreduktions Bilder:<br>
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
-        <br>
-        <img src="./output-images/Nature_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
-        
+    Bitreduktions Bilder:<br>
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
+    <br>
+    <img src="./output-images/Nature_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
 
-<br><h3>Aufgabe 3.2</h3>
-        Bitreduktions Differnez Bilder:<br>        
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
-        <img src="./output-images/Manmade_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
-        <br>
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
-        <img src="./output-images/Nature_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+    <pre>
+                RgbImage rgbImage = new RgbImage(960, 540, 24);
+                for (int y = 0; y < bmp.image.getHeight(); y++) {
+                    for (int x = 0; x < bmp.image.getWidth(); x++) {
+                        var pixel = bmp.image.getRgbPixel(x, y);
+                        var newpixel = new PixelColor(
+                            (pixel.r >> reduced_bits) << reduced_bits,
+                            (pixel.g >> reduced_bits) << reduced_bits,
+                            (pixel.b >> reduced_bits) << reduced_bits
+                        );
+                        if (x == 0 && y == 0) {
+                            System.out.println(pixel.toString());
+                            System.out.println(newpixel.toString());
+                        }
+                        rgbImage.setRgbPixel(x, y, newpixel);
+                    }
+                }
+        </pre>
+
+
+    <br>
+    <h3>Aufgabe 3.2</h3>
+    Bitreduktions Differnez Bilder:<br>
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
+    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+    <br>
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
+    <img src="./output-images/Nature_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+
+    <pre>
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    (pixel.r >> reduced_bits) << reduced_bits,
+                    (pixel.g >> reduced_bits) << reduced_bits,
+                    (pixel.b >> reduced_bits) << reduced_bits
+                );
+                if (x == 0 && y == 0) {
+                    System.out.println(pixel.toString());
+                    System.out.println(newpixel.toString());
+                }
+                var difpixel = new PixelColor(
+                    (pixel.r - newpixel.r) << (bitsPerColor - reduced_bits),
+                    (pixel.g - newpixel.g) << (bitsPerColor - reduced_bits),
+                    (pixel.b - newpixel.b) << (bitsPerColor - reduced_bits)
+                );
+                rgbImage.setRgbPixel(x, y, difpixel);
+            }
+        }
+    </pre>
+
+    <script src="imageTitle.js"></script>
+
 </body>
+
 </html>
