@@ -15,6 +15,7 @@ public final class bmp_io {
 
     public static void readrgb() {
         // BGR schreiben horizontal 2.1.
+        System.out.println("horizontal rgb");
         for (int x = 0; x < bmp.image.getWidth(); x++) {
             // ********* Done ***************
             var pixel = bmp.image.getRgbPixel(x, 0);
@@ -22,6 +23,7 @@ public final class bmp_io {
         }
 
         // BGR schreiben vertikal 2.1.
+        System.out.println("vertical rgb");
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             // ********* Done ***************
             var pixel = bmp.image.getRgbPixel(0, y);
@@ -133,7 +135,7 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         bmp = BmpReader.read_bmp(in);
 
-        // readrgb();
+        readrgb();
 
         if (args.length == 1)
             System.exit(0);
