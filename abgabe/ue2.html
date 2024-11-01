@@ -27,6 +27,10 @@
             width: 400px;
         }
 
+        .div1 {
+            display: flex;
+        }
+
         #Koalabaer {
             position: fixed;
             opacity: 1%;
@@ -37,6 +41,29 @@
 
         .img1 {
             width: 18%;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+            justify-content: center;
+        }
+        
+        .gallery-item {
+            text-align: center;
+            width: 300px; 
+        }
+        
+        .gallery-item img {
+            width: 100%; 
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .gallery-item p {
+            font-size: 12pt;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -98,25 +125,65 @@
     </p>
 
     Downsampiling Bilder:<br>
-    <img src="./output-images/Manmade_Gruppe4_downsampling_2.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_3.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_4.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_5.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_6.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_7.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_8.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_9.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_2.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_3.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_4.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_5.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_6.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_7.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_8.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_9.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+        </div>
+    </div>
     <br>
-    <img src="./output-images/Nature_Gruppe4_downsampling_2.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_3.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_4.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_5.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_6.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_7.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_8.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_9.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_2.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_3.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_4.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_5.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_6.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_7.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_8.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_downsampling_9.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+        <img src="./output-images/Nature_Gruppe4_downsampling_10.bmp" alt="" class="img1">
+        </div>
+    </div>
 
     <br>
     <br>
@@ -131,45 +198,116 @@
     </p>
 
     Bitreduktions Bilder:<br>
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
+        </div>
+    </div>
     <br>
-    <img src="./output-images/Nature_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
-
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_1.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_2.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_3.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_4.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_5.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_6.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducing_7.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+        <img src="./output-images/Nature_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
+        </div>
+    </div>
 
     <br>
     <h3>Aufgabe 3.2</h3>
     Bitreduktions Differnez Bilder:<br>
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
-    <img src="./output-images/Manmade_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Manmade_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+        </div>
+    </div>
     <br>
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
-    <img src="./output-images/Nature_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_1.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_2.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_3.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_4.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_5.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_6.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_7.bmp" alt="" class="img1">
+        </div>
+        <div class="gallery-item">
+            <img src="./output-images/Nature_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
+        </div>
+    </div>
 
     <script src="imageTitle.js"> </script>
 </body>
