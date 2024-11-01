@@ -2,7 +2,11 @@ arguments=
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
+<<<<<<< HEAD
 connection.project.dir=..
+=======
+connection.project.dir=
+>>>>>>> 6b371a4b8904412cdc3a51ade2eb016682f79fe1
 eclipse.preferences.version=1
 gradle.user.home=
 java.home=
