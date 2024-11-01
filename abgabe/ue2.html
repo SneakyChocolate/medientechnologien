@@ -116,7 +116,7 @@
                 rgbImage.setRgbPixel(x, y, newpixel);
             }
         }
-        </pre>
+    </pre>
 
 
     <br>
@@ -155,15 +155,15 @@
     <img src="./output-images/Nature_Gruppe4_downsampling_10.bmp" alt="" class="img1">
 
     <pre>
-                RgbImage rgbImage = new RgbImage(960, 540, 24);
-                for (int y = 0; y < bmp.image.getHeight(); y++) {
-                    for (int x = 0; x < bmp.image.getWidth(); x++) {
-                        var nx = x - (x % pixels);
-                        var pixel = bmp.image.getRgbPixel(nx, y);
-                        rgbImage.setRgbPixel(x, y, pixel);
-                    }
-                }
-        </pre>
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var nx = x - (x % pixels);
+                var pixel = bmp.image.getRgbPixel(nx, y);
+                rgbImage.setRgbPixel(x, y, pixel);
+            }
+        }
+    </pre>
 
     <br>
     <br>
@@ -197,23 +197,23 @@
     <img src="./output-images/Nature_Gruppe4_bitreducing_8.bmp" alt="" class="img1">
 
     <pre>
-                RgbImage rgbImage = new RgbImage(960, 540, 24);
-                for (int y = 0; y < bmp.image.getHeight(); y++) {
-                    for (int x = 0; x < bmp.image.getWidth(); x++) {
-                        var pixel = bmp.image.getRgbPixel(x, y);
-                        var newpixel = new PixelColor(
-                            (pixel.r >> reduced_bits) << reduced_bits,
-                            (pixel.g >> reduced_bits) << reduced_bits,
-                            (pixel.b >> reduced_bits) << reduced_bits
-                        );
-                        if (x == 0 && y == 0) {
-                            System.out.println(pixel.toString());
-                            System.out.println(newpixel.toString());
-                        }
-                        rgbImage.setRgbPixel(x, y, newpixel);
-                    }
+        RgbImage rgbImage = new RgbImage(960, 540, 24);
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    (pixel.r >> reduced_bits) << reduced_bits,
+                    (pixel.g >> reduced_bits) << reduced_bits,
+                    (pixel.b >> reduced_bits) << reduced_bits
+                );
+                if (x == 0 && y == 0) {
+                    System.out.println(pixel.toString());
+                    System.out.println(newpixel.toString());
                 }
-        </pre>
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    </pre>
 
 
     <br>
