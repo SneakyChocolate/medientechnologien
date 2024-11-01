@@ -59,3 +59,21 @@ img {
     font-size: 12pt;
     margin-top: 10px;
 }
+
+.text-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.text-block {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.text-block p {
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
