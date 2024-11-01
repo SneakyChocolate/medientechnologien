@@ -128,7 +128,7 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         bmp = BmpReader.read_bmp(in);
 
-        //readrgb();
+        readrgb();
 
         if (args.length == 1)
             System.exit(0);
