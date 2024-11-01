@@ -87,7 +87,16 @@
 
 
     <p>Aufgabe 1</p>
-    <p>Loesung</p>
+    <p>Nature</p>
+        Dateigroesse 1555254<br>
+        Bits pro Pixel 24<br>
+        Breite 960<br>
+        Hoehe 540<br>
+        <p>Man-Made</p>
+        Dateigroesse 1555254<br>
+        Bits pro Pixel 24<br>
+        Breite 960<br>
+        Hoehe 540<br>
 
     <br>
     <h3>Aufgabe 2.1</h3>
@@ -349,6 +358,29 @@
             <img src="./output-images/Nature_Gruppe4_bitreducingdif_8.bmp" alt="" class="img1">
         </div>
     </div>
+
+    <pre>
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    (pixel.r >> reduced_bits) << reduced_bits,
+                    (pixel.g >> reduced_bits) << reduced_bits,
+                    (pixel.b >> reduced_bits) << reduced_bits
+                );
+                if (x == 0 && y == 0) {
+                    System.out.println(pixel.toString());
+                    System.out.println(newpixel.toString());
+                }
+                var difpixel = new PixelColor(
+                    (pixel.r - newpixel.r) << (bitsPerColor - reduced_bits),
+                    (pixel.g - newpixel.g) << (bitsPerColor - reduced_bits),
+                    (pixel.b - newpixel.b) << (bitsPerColor - reduced_bits)
+                );
+                rgbImage.setRgbPixel(x, y, difpixel);
+            }
+        }
+    </pre>
 
     <script src="./imageTitle.js"></script>
 </body>
