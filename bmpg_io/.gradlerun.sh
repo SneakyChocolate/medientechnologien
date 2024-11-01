@@ -3,6 +3,6 @@ readrgb() {
 }
 
 gradlerun() {
-  gradle run --args="../../abgabe/pics/$1.bmp ../../abgabe/output-images/$1$2.bmp $2"
+  gradle run --args="../../abgabe/pics/$1.bmp ../../abgabe/output-images/$1_$2_$3.bmp $2 $3"
 }
 

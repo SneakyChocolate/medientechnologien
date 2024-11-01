@@ -46,19 +46,14 @@ public final class bmp_io {
         bmp.horizontalResolution = rgbImage.width;
         bmp.verticalResolution = rgbImage.height;
     }
-    public static void downsampling() {
+    public static void downsampling(int pixels) {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* Done ***************
-                if (x % 2 == 0) {
-                    var pixel = bmp.image.getRgbPixel(x, y);
-                    rgbImage.setRgbPixel(x, y, pixel);
-                }
-                else {
-                    var pixel = bmp.image.getRgbPixel(x - 1, y);
-                    rgbImage.setRgbPixel(x, y, pixel);
-                }
+                var nx = x - (x % pixels);
+                var pixel = bmp.image.getRgbPixel(nx, y);
+                rgbImage.setRgbPixel(x, y, pixel);
             }
         }
         bmp = new BmpImage();
@@ -66,8 +61,7 @@ public final class bmp_io {
         bmp.horizontalResolution = rgbImage.width;
         bmp.verticalResolution = rgbImage.height;
     }
-    public static void bitreducing() {
-        int reduced_bits = 6;
+    public static void bitreducing(int reduced_bits) {
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
@@ -90,8 +84,7 @@ public final class bmp_io {
         bmp.horizontalResolution = rgbImage.width;
         bmp.verticalResolution = rgbImage.height;
     }
-    public static void bitreducingdif() {
-        int reduced_bits = 3;
+    public static void bitreducingdif(int reduced_bits) {
         int bitsPerColor = 8;
         RgbImage rgbImage = new RgbImage(960, 540, 24);
         for (int y = 0; y < bmp.image.getHeight(); y++) {
@@ -135,7 +128,7 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         bmp = BmpReader.read_bmp(in);
 
-        readrgb();
+        //readrgb();
 
         if (args.length == 1)
             System.exit(0);
@@ -145,33 +138,37 @@ public final class bmp_io {
         outFilename = args[1];
         OutputStream out = new FileOutputStream(outFilename);
 
-        if (args.length == 3) {
+        if (args.length >= 3) {
             // erzeuge graustufenbild
             if (args[2].compareTo("graustufen") == 0) {
                 graustufen();
             }
             // downsampling
             else if (args[2].compareTo("downsampling") == 0) {
-                downsampling();
+                int v = args.length == 4 ? Integer.parseInt(args[3]) : 2;
+                System.out.println("downsampling with " + v);
+                downsampling(v);
             }
             // bitreduzierung
             else if (args[2].compareTo("bitreducing") == 0) {
-                bitreducing();
+                int v = args.length == 4 ? Integer.parseInt(args[3]) : 5;
+                bitreducing(v);
             }
             // bitreduzierung differenz
             else if (args[2].compareTo("bitreducingdif") == 0) {
-                bitreducingdif();
+                int v = args.length == 4 ? Integer.parseInt(args[3]) : 3;
+                bitreducingdif(v);
             }
         }
         else {
             // erzeuge graustufenbild
             graustufen();
             // downsampling
-            downsampling();
+            //downsampling();
             // bitreduzierung
-            bitreducing();
+            //bitreducing();
             // bitreduzierung differenz
-            bitreducingdif();
+            //bitreducingdif();
         }
         
         try {

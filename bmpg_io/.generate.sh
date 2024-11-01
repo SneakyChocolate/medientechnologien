@@ -4,11 +4,15 @@ source .gradlerun.sh
 gradlerun Nature_Gruppe4 graustufen
 gradlerun Manmade_Gruppe4 graustufen
 
-gradlerun Nature_Gruppe4 downsampling
-gradlerun Manmade_Gruppe4 downsampling
+for i in $(seq 2 10); do
+    gradlerun Nature_Gruppe4 downsampling $i
+    gradlerun Manmade_Gruppe4 downsampling $i
+done
 
-gradlerun Nature_Gruppe4 bitreducing
-gradlerun Manmade_Gruppe4 bitreducing
+for i in $(seq 1 8); do
+    gradlerun Nature_Gruppe4 bitreducing $i
+    gradlerun Manmade_Gruppe4 bitreducing $i
 
-gradlerun Nature_Gruppe4 bitreducingdif
-gradlerun Manmade_Gruppe4 bitreducingdif
+    gradlerun Nature_Gruppe4 bitreducingdif $i
+    gradlerun Manmade_Gruppe4 bitreducingdif $i
+done
