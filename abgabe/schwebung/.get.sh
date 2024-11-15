@@ -1,0 +1,3 @@
+wget -q -O "s-tri-gleich.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306959572786876479/image.png?ex=67389074&is=67373ef4&hm=fcdc2665a9ce51dad1927565cc87cbe691c1b0d3f42376c8ea18c6296b89a189&"
+wget -q -O "s-tri-A.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306959748096200714/image.png?ex=6738909e&is=67373f1e&hm=a311528a3f4a3470211bebd499c265f4f30620873d66a0fd10899b4c7e0f9261&"
+wget -q -O "s-tri-B.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306959897186795601/image.png?ex=673890c1&is=67373f41&hm=6878a22bb946a650b04662f840a904ef0599dca7a452411aae711bfd0aa3dd2e&"
