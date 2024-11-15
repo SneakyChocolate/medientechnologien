@@ -4,3 +4,4 @@ wget -q -O "s-tri-B.png" "https://cdn.discordapp.com/attachments/130695956866793
 wget -q -O "s-tri-A-m.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306974702727594024/image.png?ex=67389e8b&is=67374d0b&hm=cee44fefbaedc63fc0eb5f03352591a51567cb68ba7e184ac6201c396163d7c2&"
 wget -q -O "s-tri-B-m.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306974873037308015/image.png?ex=67389eb4&is=67374d34&hm=92a80ec4fb3c44129dbc2dcf98b172dee272ee6aa8e92038e4f0f862beb636ea&"
 wget -q -O "s-tri-B-d.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306975954232414220/image.png?ex=67389fb5&is=67374e35&hm=ab4f0efd0f41def876a1ae8fac6e1246afd9f9afd7dcdd4ef27282a6a454e41c&"
+wget -q -O "interessant.png" "https://cdn.discordapp.com/attachments/1306959568667938888/1306980258515259543/image.png?ex=6738a3b8&is=67375238&hm=79443b4d741ebc429de5427f20692053164145012161c6af3822fec8a8ace78d&"
