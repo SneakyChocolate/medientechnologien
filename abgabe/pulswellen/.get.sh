@@ -1,0 +1,5 @@
+wget -q -O "sqr.png" "https://cdn.discordapp.com/attachments/1304430794864988221/1306942224524640316/image.png?ex=6738804c&is=67372ecc&hm=dd6a526c8f71a693f78ac3f1f2a5f1867eb7b791a0d505a16baeade483f3a1f3&"
+wget -q -O "sqr-10.png" "https://cdn.discordapp.com/attachments/1304430794864988221/1306942473280684062/image.png?ex=67388087&is=67372f07&hm=784f2a90bc20f3991e88a451dd94eb41c2f3b8ae0cc9c1e607a95b70676eb466&"
+wget -q -O "sqr-30.png" "https://cdn.discordapp.com/attachments/1304430794864988221/1306942674053369888/image.png?ex=673880b7&is=67372f37&hm=bcf35d6f6211fa885e3b8b21cdd4e7670dbb13579a9634d9dbdb7aacc380fe3e&"
+wget -q -O "tri.png" "https://cdn.discordapp.com/attachments/1304430794864988221/1306943426280947742/image.png?ex=6738816a&is=67372fea&hm=8000fa8f06b9529f7c9acd8d9f2390e2d768498d8331d0273c009296e2034dd1&"
+wget -q -O "saw.png" "https://cdn.discordapp.com/attachments/1304430794864988221/1306943278725206116/image.png?ex=67388147&is=67372fc7&hm=e60dc81871c75da7c1f7619bdf012942ce8b5be6e3913a67e639d944100e2600&"
