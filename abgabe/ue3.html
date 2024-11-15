@@ -1,41 +1,209 @@
 <html>
+
 <head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="format.css">
-<style type="text/css">
-        <!--
-                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
-                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
-                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
-        //-->
-</style>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="format.css">
+    <style type="text/css">
+        a:link {
+            font-family: Arial;
+            font-size: 10pt;
+            text-decoration: none;
+        }
+
+        a:visited {
+            font-family: Arial;
+            font-size: 10pt;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FF3333;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 10pt;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: right;
+        }
+
+        th {
+            background-color: #ffe4d0;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) td {
+            background-color: #fff;
+        }
+
+        .header-row td {
+            background-color: #ffe4d0 !important;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
-<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
-         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
-         folgenden.</p>
-</iframe>
+    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+        <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite
+            &uuml;ber den
+            folgenden.</p>
+    </iframe>
 
-<h2>Uebung 3</h2>
-<br><h3>Aufgabe 1 - 1.1</h3>
-<video controls width="650" height="550">
-    <!--source src="./video/greenscreen.webm" type="video/mp4" /-->
-    <source src="./video/wildlife.webm" type="video/webm" />
-</video>
-<p>Bescheibung</p>
-<p>Loesung</p>
+    <h2>Uebung 3</h2>
+    <br>
+    <h3>Aufgabe 1 - 1.1</h3>
+    <!-- <video controls width="650" height="550">
+        source src="./video/greenscreen.webm" type="video/mp4" /
+        <source src="./video/wildlife.webm" type="video/webm" />
+    </video>
+    <p>Bescheibung</p>
+    <p>Loesung</p> -->
 
-<br><h3>Aufgabe 1 - 1.2</h3>
-<p>Loesung</p>
+    <br>
+    <h3>Aufgabe 1 - 1.2</h3>
 
-<br><h3>Aufgabe 2 - 2.1</h3>
-<p>Loesung</p>
 
-<br><h3>Aufgabe 2 - 2.2</h3>
-<p>Loesung</p>
+    <h3>Triangle</h3>
+    <table>
+        <tr class="header-row">
+            <td>i</td>
+            <td>f[Hz]</td>
+            <td>Ampl.[dB]</td>
+            <td>Differenz</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>116</td>
+            <td>80</td>
+            <td>0</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>346</td>
+            <td>62</td>
+            <td>-18</td>
+            <td>12.59</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>578</td>
+            <td>53</td>
+            <td>-27</td>
+            <td>4.47</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>808</td>
+            <td>47</td>
+            <td>-33</td>
+            <td>2.24</td>
+        </tr>
+    </table>
+
+    <h3>Saw</h3>
+    <table>
+        <tr class="header-row">
+            <td>i</td>
+            <td>f[Hz]</td>
+            <td>Ampl.[dB]</td>
+            <td>Differenz</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>116</td>
+            <td>76</td>
+            <td>0</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>232</td>
+            <td>70</td>
+            <td>-6</td>
+            <td>50.12</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>346</td>
+            <td>67</td>
+            <td>-9</td>
+            <td>35.48</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>462</td>
+            <td>64</td>
+            <td>-12</td>
+            <td>25.12</td>
+        </tr>
+    </table>
+
+    <h3>Square</h3>
+    <table>
+        <tr class="header-row">
+            <td>i</td>
+            <td>f[Hz]</td>
+            <td>Ampl.[dB]</td>
+            <td>Differenz</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>116</td>
+            <td>80</td>
+            <td>0</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>350</td>
+            <td>70</td>
+            <td>-10</td>
+            <td>31.62</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>580</td>
+            <td>66</td>
+            <td>-14</td>
+            <td>19.95</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>808</td>
+            <td>63</td>
+            <td>-17</td>
+            <td>14.13</td>
+        </tr>
+    </table>
+
+    <br>
+    <h3>Aufgabe 2 - 2.1</h3>
+    <p>Loesung</p>
+
+    <br>
+    <h3>Aufgabe 2 - 2.2</h3>
+    <p>Loesung</p>
 
 
 </body>
+
 </html>
