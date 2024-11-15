@@ -1,0 +1,30 @@
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+th,
+td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: right;
+}
+
+th {
+    background-color: #ffe4d0;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) td {
+    background-color: #fff;
+}
+
+.header-row td {
+    background-color: #ffe4d0 !important;
+    font-weight: bold;
+}

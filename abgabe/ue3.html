@@ -3,6 +3,8 @@
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="format.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="tables.css">
     <style type="text/css">
         a:link {
             font-family: Arial;
@@ -21,37 +23,6 @@
             text-decoration: none;
             font-weight: normal;
             font-size: 10pt;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        th,
-        td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: right;
-        }
-
-        th {
-            background-color: #ffe4d0;
-        }
-
-        tr:nth-child(even) td {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(odd) td {
-            background-color: #fff;
-        }
-
-        .header-row td {
-            background-color: #ffe4d0 !important;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -82,10 +53,23 @@
     <audio controls>
         <source src="./vcv-outputs/tri116.wav" type="audio/wav">
     </audio>
-    <img src="./vcv-spectrum/tri-0.png" alt="">
-    <img src="./vcv-spectrum/tri-1.png" alt="">
-    <img src="./vcv-spectrum/tri-2.png" alt="">
-    <img src="./vcv-spectrum/tri-3.png" alt="">
+    <br>
+    <br>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/tri-0.png" alt="Triangle Spectrum 0">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/tri-1.png" alt="Triangle Spectrum 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/tri-2.png" alt="Triangle Spectrum 2">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/tri-3.png" alt="Triangle Spectrum 3">
+        </div>
+    </div>
+    <br>
     <table>
         <tr class="header-row">
             <td>i</td>
@@ -128,10 +112,23 @@
     <audio controls>
         <source src="./vcv-outputs/saw116.wav" type="audio/wav">
     </audio>
-    <img src="./vcv-spectrum/saw-0.png" alt="">
-    <img src="./vcv-spectrum/saw-1.png" alt="">
-    <img src="./vcv-spectrum/saw-2.png" alt="">
-    <img src="./vcv-spectrum/saw-3.png" alt="">
+    <br>
+    <br>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/saw-0.png" alt="Saw Spectrum 0">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/saw-1.png" alt="Saw Spectrum 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/saw-2.png" alt="Saw Spectrum 2">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/saw-3.png" alt="Saw Spectrum 3">
+        </div>
+    </div>
+    <br>
     <table>
         <tr class="header-row">
             <td>i</td>
@@ -174,10 +171,23 @@
     <audio controls>
         <source src="./vcv-outputs/sqr116.wav" type="audio/wav">
     </audio>
-    <img src="./vcv-spectrum/sqr-0.png" alt="">
-    <img src="./vcv-spectrum/sqr-1.png" alt="">
-    <img src="./vcv-spectrum/sqr-2.png" alt="">
-    <img src="./vcv-spectrum/sqr-3.png" alt="">
+    <br>
+    <br>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-0.png" alt="Square Spectrum 0">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-1.png" alt="Square Spectrum 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-2.png" alt="Square Spectrum 2">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-3.png" alt="Square Spectrum 3">
+        </div>
+    </div>
+    <br>
     <table>
         <tr class="header-row">
             <td>i</td>
@@ -216,97 +226,123 @@
         </tr>
     </table>
 
-<h3>Square 10/90</h3>
-<audio controls>
-    <source src="./vcv-outputs/sqr116.wav-10" type="audio/wav">
-</audio>
-<img src="./vcv-spectrum/sqr-10-0.png" alt="">
-<img src="./vcv-spectrum/sqr-10-1.png" alt="">
-<img src="./vcv-spectrum/sqr-10-2.png" alt="">
-<img src="./vcv-spectrum/sqr-10-3.png" alt="">
-<table>
-  <tr class="header-row">
-    <td>i</td>
-    <td>f[Hz]</td>
-    <td>Ampl.[dB]</td>
-    <td>Differenz</td>
-    <td>%</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>116</td>
-    <td>74</td>
-    <td>-6</td>
-    <td>50.12</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>232</td>
-    <td>74</td>
-    <td>-6</td>
-    <td>50.12</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>348</td>
-    <td>73</td>
-    <td>-7</td>
-    <td>44.67</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>463</td>
-    <td>71</td>
-    <td>-9</td>
-    <td>35.48</td>
-  </tr>
-</table>
+    <h3>Square 10/90</h3>
+    <audio controls>
+        <source src="./vcv-outputs/sqr116.wav-10" type="audio/wav">
+    </audio>
+    <br>
+    <br>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-10-0.png" alt="Square 10/90 Spectrum 0">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-10-1.png" alt="Square 10/90 Spectrum 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-10-2.png" alt="Square 10/90 Spectrum 2">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-10-3.png" alt="Square 10/90 Spectrum 3">
+        </div>
+    </div>
+    <br>
+    <table>
+        <tr class="header-row">
+            <td>i</td>
+            <td>f[Hz]</td>
+            <td>Ampl.[dB]</td>
+            <td>Differenz</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>116</td>
+            <td>74</td>
+            <td>-6</td>
+            <td>50.12</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>232</td>
+            <td>74</td>
+            <td>-6</td>
+            <td>50.12</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>348</td>
+            <td>73</td>
+            <td>-7</td>
+            <td>44.67</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>463</td>
+            <td>71</td>
+            <td>-9</td>
+            <td>35.48</td>
+        </tr>
+    </table>
 
-<h3>Square 30/70</h3>
-<audio controls>
-    <source src="./vcv-outputs/sqr116-30.wav" type="audio/wav">
-</audio>
-<img src="./vcv-spectrum/sqr-30-0.png" alt="">
-<img src="./vcv-spectrum/sqr-30-1.png" alt="">
-<img src="./vcv-spectrum/sqr-30-2.png" alt="">
-<img src="./vcv-spectrum/sqr-30-3.png" alt="">
-<table>
-  <tr class="header-row">
-    <td>i</td>
-    <td>f[Hz]</td>
-    <td>Ampl.[dB]</td>
-    <td>Differenz</td>
-    <td>%</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>116</td>
-    <td>80</td>
-    <td>0</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>231</td>
-    <td>75</td>
-    <td>-5</td>
-    <td>56.23</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>347</td>
-    <td>62</td>
-    <td>-18</td>
-    <td>12.59</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>464</td>
-    <td>65</td>
-    <td>-15</td>
-    <td>17.78</td>
-  </tr>
-</table>
+    <h3>Square 30/70</h3>
+    <audio controls>
+        <source src="./vcv-outputs/sqr116-30.wav" type="audio/wav">
+    </audio>
+    <br>
+    <br>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-30-0.png" alt="Square 30/70 Spectrum 0">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-30-1.png" alt="Square 30/70 Spectrum 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-30-2.png" alt="Square 30/70 Spectrum 2">
+        </div>
+        <div class="gallery-item">
+            <img src="./vcv-spectrum/sqr-30-3.png" alt="Square 30/70 Spectrum 3">
+        </div>
+    </div>
+    <br>
+    <table>
+        <tr class="header-row">
+            <td>i</td>
+            <td>f[Hz]</td>
+            <td>Ampl.[dB]</td>
+            <td>Differenz</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>116</td>
+            <td>80</td>
+            <td>0</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>231</td>
+            <td>75</td>
+            <td>-5</td>
+            <td>56.23</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>347</td>
+            <td>62</td>
+            <td>-18</td>
+            <td>12.59</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>464</td>
+            <td>65</td>
+            <td>-15</td>
+            <td>17.78</td>
+        </tr>
+    </table>
 
     <br>
     <h3>Aufgabe 2 - 2.1</h3>
