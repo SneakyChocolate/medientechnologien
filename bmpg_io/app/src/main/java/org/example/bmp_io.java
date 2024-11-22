@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.HashMap;
 
 public final class bmp_io {
     public static String inFilename = null;
@@ -14,6 +16,46 @@ public final class bmp_io {
     public static InputStream in;
     public static RgbImage rgbImage;
 
+    public static void write_pixels(String filename) {
+        try {
+            PrintWriter writer = new PrintWriter(filename, "UTF-8");
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                var row = "";
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    row += pixel.toString();
+                }
+                writer.println(row);
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("file couldnt be created");
+        }
+    }
+    public static void ycbcr_values(String filename) {
+        HashMap<Integer, Integer> values = new HashMap<>();
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var v = values.get(pixel.g);
+                if (v == null) {
+                    values.put(pixel.g, 1);
+                }
+                else {
+                    values.put(pixel.g, v + 1);
+                }
+            }
+        }
+        try {
+            PrintWriter writer = new PrintWriter(filename, "UTF-8");
+            for (var entry : values.entrySet()) {
+                writer.println(entry.getKey() + ": " + entry.getValue());
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("file couldnt be created");
+        }
+    }
     public static void readrgb() {
         // BGR schreiben horizontal 2.1.
         System.out.println("horizontal rgb");
@@ -273,6 +315,8 @@ public final class bmp_io {
             }
             else if (args[2].compareTo("ycbcr_y") == 0) {
                 image_to_ycbcr_y();
+                ycbcr_values(outFilename + "_values.txt");
+                //write_pixels("test.txt");
             }
             else if (args[2].compareTo("ycbcr_cb") == 0) {
                 image_to_ycbcr_cb();
