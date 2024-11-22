@@ -148,7 +148,7 @@ public final class bmp_io {
             new double[] {1, 1.773, 0},
         };
         var mul = new double[] {ycbcr.r, ycbcr.g - 128, ycbcr.b - 128};
-        int r  = (int) (mat[0][0] * mul[0] + mat[0][1] * mul[1] + mat[0][2] * mul[2]);
+        int r = (int) (mat[0][0] * mul[0] + mat[0][1] * mul[1] + mat[0][2] * mul[2]);
         int g = (int) (mat[1][0] * mul[0] + mat[1][1] * mul[1] + mat[1][2] * mul[2]);
         int b = (int) (mat[2][0] * mul[0] + mat[2][1] * mul[1] + mat[2][2] * mul[2]);
         return new PixelColor(r, g, b);
