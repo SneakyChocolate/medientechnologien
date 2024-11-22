@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="format.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="tables.css">
+    <style type="text/css">
+        a:link {
+            font-family: Arial;
+            font-size: 10pt;
+            text-decoration: none;
+        }
+
+        a:visited {
+            font-family: Arial;
+            font-size: 10pt;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FF3333;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+        <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite
+            &uuml;ber den
+            folgenden.</p>
+    </iframe>
+
+    <h2>Übung 4</h2>
+    <h3>Aufgabe 1</h3>
+    <h2>a)</h2>
+    <p>   
+        Das menschliche Auge sieht im grünen Spektralbereich am besten und erkennt Helligkeitsunterschiede besser als Farb- und Sättigungsunterschiede. Die Trennung von Luminanz (\(Y\)) und Chrominanz (\(Cb, Cr\)) reduziert die Farbinformation und beeinträchtigt dabei nicht die wahrgenommene Bildqualität erheblich, sodass dies für Anwendungen wie die Bildkompression entscheidend ist.
+    </p>
+
+    <h2>b)</h2>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_red_only.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_green_only.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_blue_only.bmp" alt="">
+        </div>
+    </div>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_red_only.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_green_only.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_blue_only.bmp" alt="">
+        </div>
+    </div>
+
+    <pre>
+        public static void multiply_rgb(double r, double g, double b) {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    var newpixel = new PixelColor(
+                        (int) (r * pixel.r),
+                        (int) (b * pixel.b),
+                        (int) (g * pixel.g)
+                    );
+                    rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
+
+    <pre>
+        // rgb only
+        if (args[2].compareTo("red_only") == 0) {
+            multiply_rgb(1, 0, 0);
+        }
+        else if (args[2].compareTo("green_only") == 0) {
+            multiply_rgb(0, 1, 0);
+        }
+        else if (args[2].compareTo("blue_only") == 0) {
+            multiply_rgb(0, 0, 1);
+        }
+    </pre>
+
+</body>
+
+</html>
