@@ -129,34 +129,75 @@ public final class bmp_io {
             }
         }
     }
-    public static PixelColor YCbCr_to_RGB(PixelColor ycbcr) {
-        var mat = new double[][] {
-            new double[] {1, 0, 1.403},
-            new double[] {1, -0.344, -0.714},
-            new double[] {1, 1.773, 0},
-        };
-        int y  = (int) (mat[0][0] * ycbcr.r + mat[0][1] * ycbcr.g + mat[0][2] * ycbcr.b);
-        int cb = (int) (mat[1][0] * ycbcr.r + mat[1][1] * ycbcr.g + mat[1][2] * ycbcr.b) + 128;
-        int cr = (int) (mat[2][0] * ycbcr.r + mat[2][1] * ycbcr.g + mat[2][2] * ycbcr.b) + 128;
-        return new PixelColor(y, cb, cr);
-    }
     public static PixelColor RGB_to_YCbCr(PixelColor rgb) {
         var mat = new double[][] {
             new double[] {0.299, 0.587, 0.114},
             new double[] {-0.169, -0.331, 0.5},
             new double[] {0.5, -0.419, -0.081},
         };
-        int y  = (int) (mat[0][0] * rgb.r + mat[0][1] * rgb.g + mat[0][2] * rgb.b);
-        int cb = (int) (mat[1][0] * rgb.r + mat[1][1] * rgb.g + mat[1][2] * rgb.b) + 128;
-        int cr = (int) (mat[2][0] * rgb.r + mat[2][1] * rgb.g + mat[2][2] * rgb.b) + 128;
+        var mul = new double[] {rgb.r, rgb.g, rgb.b};
+        int y  = (int) (mat[0][0] * mul[0] + mat[0][1] * mul[1] + mat[0][2] * mul[2]);
+        int cb = (int) (mat[1][0] * mul[0] + mat[1][1] * mul[1] + mat[1][2] * mul[2]) + 128;
+        int cr = (int) (mat[2][0] * mul[0] + mat[2][1] * mul[1] + mat[2][2] * mul[2]) + 128;
         return new PixelColor(y, cb, cr);
     }
-    public static void image_to_ycbcr(double yf, double cb, double cr) {
+    public static PixelColor YCbCr_to_RGB(PixelColor ycbcr) {
+        var mat = new double[][] {
+            new double[] {1, 0, 1.403},
+            new double[] {1, -0.344, -0.714},
+            new double[] {1, 1.773, 0},
+        };
+        var mul = new double[] {ycbcr.r, ycbcr.g - 128, ycbcr.b - 128};
+        int r  = (int) (mat[0][0] * mul[0] + mat[0][1] * mul[1] + mat[0][2] * mul[2]);
+        int g = (int) (mat[1][0] * mul[0] + mat[1][1] * mul[1] + mat[1][2] * mul[2]);
+        int b = (int) (mat[2][0] * mul[0] + mat[2][1] * mul[1] + mat[2][2] * mul[2]);
+        return new PixelColor(r, g, b);
+    }
+    public static void image_to_ycbcr() {
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* Done ***************
                 var pixel = bmp.image.getRgbPixel(x, y);
-                var ycbcr = multiply_pixel(RGB_to_YCbCr(pixel), yf, cb, cr);
+                var ycbcr = RGB_to_YCbCr(pixel);
+                var newpixel = YCbCr_to_RGB(ycbcr);
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    }
+    public static void image_to_ycbcr_y() {
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* Done ***************
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var ycbcr = RGB_to_YCbCr(pixel);
+                ycbcr.g = 128;
+                ycbcr.b = 128;
+                var newpixel = YCbCr_to_RGB(ycbcr);
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    }
+    public static void image_to_ycbcr_cr() {
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* Done ***************
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var ycbcr = RGB_to_YCbCr(pixel);
+                ycbcr.r = 128;
+                ycbcr.b = 128;
+                var newpixel = YCbCr_to_RGB(ycbcr);
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    }
+    public static void image_to_ycbcr_cb() {
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* Done ***************
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var ycbcr = RGB_to_YCbCr(pixel);
+                ycbcr.r = 128;
+                ycbcr.g = 128;
                 var newpixel = YCbCr_to_RGB(ycbcr);
                 rgbImage.setRgbPixel(x, y, newpixel);
             }
@@ -227,14 +268,17 @@ public final class bmp_io {
                 multiply_rgb(0, 0, 1);
             }
             // ycbcr
+            else if (args[2].compareTo("ycbcr") == 0) {
+                image_to_ycbcr();
+            }
             else if (args[2].compareTo("ycbcr_y") == 0) {
-                image_to_ycbcr(1,0,0);
+                image_to_ycbcr_y();
             }
             else if (args[2].compareTo("ycbcr_cb") == 0) {
-                image_to_ycbcr(0,1,0);
+                image_to_ycbcr_cb();
             }
             else if (args[2].compareTo("ycbcr_cr") == 0) {
-                image_to_ycbcr(0,0,1);
+                image_to_ycbcr_cr();
             }
         }
         else {
