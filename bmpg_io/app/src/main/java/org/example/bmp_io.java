@@ -109,6 +109,22 @@ public final class bmp_io {
         }
     }
 
+    // Aufgabe 4
+    public static void multiply_rgb(double r, double g, double b) {
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* Done ***************
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    (int) (r * pixel.r),
+                    (int) (b * pixel.b),
+                    (int) (g * pixel.g)
+                );
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
         if (args.length < 1) {
@@ -161,6 +177,16 @@ public final class bmp_io {
             else if (args[2].compareTo("bitreducingdif") == 0) {
                 int v = args.length == 4 ? Integer.parseInt(args[3]) : 3;
                 bitreducingdif(v);
+            }
+            // rgb only
+            else if (args[2].compareTo("red_only") == 0) {
+                multiply_rgb(1, 0, 0);
+            }
+            else if (args[2].compareTo("green_only") == 0) {
+                multiply_rgb(0, 1, 0);
+            }
+            else if (args[2].compareTo("blue_only") == 0) {
+                multiply_rgb(0, 0, 1);
             }
         }
         else {
