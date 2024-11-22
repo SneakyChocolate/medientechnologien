@@ -220,7 +220,7 @@
     </pre>
 
     <h2>d)</h2>
-
+    
     <div class="gallery">
         <div class="gallery-item">
             <p>Rekonstruiert Nature:</p>
@@ -246,6 +246,41 @@
             }
         }
 
+    </pre>
+
+    <h1>Aufgabe 2</h1>
+    <p>Nature Histogramm:</p>
+    <img src="./aufgabe4-images/Nature_Gruppe4_Histogramm.png">
+    <p>Man-Made Histogramm:</p>
+    <img src="./aufgabe4-images/Manmade_Gruppe4_Histogramm.png">
+    
+    <p>Die X-Achse zeigt die Pixelluminanz und die Y-Achse zeigt die Häufigkeit dieser Helligkeit</p>
+    <p>Funktion:</p>
+    <pre>
+        public static void ycbcr_values(String filename) {
+            HashMap<Integer, Integer> values = new HashMap<>();
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    var v = values.get(pixel.g);
+                    if (v == null) {
+                        values.put(pixel.g, 1);
+                    }
+                    else {
+                        values.put(pixel.g, v + 1);
+                    }
+                }
+            }
+            try {
+                PrintWriter writer = new PrintWriter(filename, "UTF-8");
+                for (var entry : values.entrySet()) {
+                    writer.println(entry.getKey() + ": " + entry.getValue());
+                }
+                writer.close();
+            } catch (Exception e) {
+                System.out.println("file couldnt be created");
+            }
+        }
     </pre>
 </body>
 
