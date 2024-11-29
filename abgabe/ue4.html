@@ -1,35 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="de">
 
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="format.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="tables.css">
-    <style type="text/css">
-        a:link {
-            font-family: Arial;
-            font-size: 10pt;
-            text-decoration: none;
-        }
-
-        a:visited {
-            font-family: Arial;
-            font-size: 10pt;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #FF3333;
-            text-decoration: none;
-            font-weight: normal;
-            font-size: 10pt;
-        }
     </style>
 </head>
 
 <body>
 
-    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0" title="error">
         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite
             &uuml;ber den
             folgenden.</p>
@@ -38,12 +20,15 @@
     <h2>Übung 4</h2>
     <h3>Aufgabe 1</h3>
     <h2>a)</h2>
-    <p>   
-        Das menschliche Auge sieht im grünen Spektralbereich am besten und erkennt Helligkeitsunterschiede besser als Farb- und Sättigungsunterschiede. Die Trennung von Luminanz und Chrominanz reduziert die Farbinformation und beeinträchtigt dabei nicht die wahrgenommene Bildqualität erheblich, sodass dies für Anwendungen wie die Bildkompression entscheidend ist.
+    <p>
+        Das menschliche Auge sieht im grünen Spektralbereich am besten und erkennt Helligkeitsunterschiede besser als
+        Farb- und Sättigungsunterschiede. Die Trennung von Luminanz und Chrominanz reduziert die Farbinformation und
+        beeinträchtigt dabei nicht die wahrgenommene Bildqualität erheblich, sodass dies für Anwendungen wie die
+        Bildkompression entscheidend ist.
     </p>
 
     <h2>b)</h2>
-    
+
     <div class="gallery">
         <div class="gallery-item">
             <img src="./aufgabe4-images/Manmade_Gruppe4_red_only_.bmp" alt="">
@@ -69,7 +54,7 @@
     </div>
 
     <p>Hilfsfunktionen:</p>
-    
+
     <pre>
         public static PixelColor copy(PixelColor pixel) {
             return new PixelColor(pixel.r, pixel.g, pixel.b);
@@ -81,9 +66,9 @@
             return pixelColor;
         }
     </pre>
-    
+
     <p>Funktion:</p>
-    
+
     <pre>
         public static void multiply_rgb(double r, double g, double b) {
             for (int y = 0; y < bmp.image.getHeight(); y++) {
@@ -99,7 +84,7 @@
             }
         }
     </pre>
-    
+
     <p>Anwendung:</p>
 
     <pre>
@@ -116,7 +101,7 @@
     </pre>
     <br>
     <h2>c)</h2>
-    
+
     <div class="gallery">
         <div class="gallery-item">
             <p>Y:</p>
@@ -132,7 +117,7 @@
         </div>
     </div>
     <br>
-    
+
     <div class="gallery">
         <div class="gallery-item">
             <p>Y:</p>
@@ -149,6 +134,7 @@
     </div>
     <br>
     <p>Hilfsfunktionen:</p>
+    <!-- #region code -->
     <pre>
         public static PixelColor RGB_to_YCbCr(PixelColor rgb) {
             var mat = new double[][] {
@@ -175,9 +161,11 @@
             return new PixelColor(r, g, b);
         }
     </pre>
+    <!-- #endregion -->
 
     <p>Funktionen:</p>
 
+    <!-- #region code -->
     <pre>
 
         public static void image_to_ycbcr_y() {
@@ -221,9 +209,10 @@
         }
 
     </pre>
+    <!-- #endregion -->
 
     <h2>d)</h2>
-    
+
     <div class="gallery">
         <div class="gallery-item">
             <p>Rekonstruiert Nature:</p>
@@ -235,6 +224,7 @@
         </div>
     </div>
     <br>
+    <!-- #region code -->
     <pre>
 
         public static void image_to_ycbcr() {
@@ -250,15 +240,17 @@
         }
 
     </pre>
+    <!-- #endregion -->
 
     <h1>Aufgabe 2</h1>
     <p>Nature Histogramm:</p>
-    <img src="./aufgabe4-images/Nature_Gruppe4_Histogramm.png">
+    <img src="./aufgabe4-images/Nature_Gruppe4_Histogramm.png" alt="">
     <p>Man-Made Histogramm:</p>
-    <img src="./aufgabe4-images/Manmade_Gruppe4_Histogramm.png">
-    
+    <img src="./aufgabe4-images/Manmade_Gruppe4_Histogramm.png" alt="">
+
     <p>Die X-Achse zeigt die Pixelluminanz und die Y-Achse zeigt die Häufigkeit dieser Helligkeit</p>
     <p>Funktion:</p>
+    <!-- #region code -->
     <pre>
         public static void ycbcr_values(String filename) {
             HashMap<Integer, Integer> values = new HashMap<>();
@@ -285,6 +277,72 @@
             }
         }
     </pre>
+    <!-- #endregion -->
+
+
+    <h1>Aufgabe 3</h1>
+    <h2>a)</h2>
+    <p> Wir erhalten folgende Werte durch unseren Java Code:</p>
+    <div class="text-container">
+        <div class="text-block">
+            <p>nature</p>
+            average brightness: 63 <br>
+            standartabweichung: 64.358 <br>
+        </div>
+        <div class="text-block">
+            <p>manmade</p>
+            average brightness: 175 <br>
+            standartabweichung: 35.199
+        </div>
+    </div>
+
+    Code für die Helligkeitsänderung:
+    <!-- #region code -->
+    <pre>
+        public static void brightness_print() {
+            int sum = 0;
+            image_to_ycbcr_y();
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    sum += pixel.r;
+                }
+            }
+            int amount = bmp.image.getHeight() * bmp.image.getWidth();
+            System.out.println("average brightness: " + sum / amount);
+        }
+    </pre>
+    <!-- #endregion -->
+
+    <p>Code für Standartabweichung/Kontrast</p>
+    <!-- #region code -->
+    <pre>
+        public static void contrast_print() {
+            int amount = bmp.image.getHeight() * bmp.image.getWidth();
+            // brightness
+            int brightness_sum = 0;
+            image_to_ycbcr_y();
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    brightness_sum += pixel.r;
+                }
+            }
+            int u = brightness_sum / amount;
+            
+            // abweichung
+            int osum = 0;
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    osum += Math.pow(pixel.r - u, 2);
+                }
+            }
+            double o = Math.sqrt(osum / amount);
+            System.out.println("standartabweichung: " + o);
+        }
+    </pre>
+    <!-- #endregion -->
 </body>
 
 </html>
