@@ -56,6 +56,58 @@ public final class bmp_io {
             System.out.println("file couldnt be created");
         }
     }
+    // aufgabe 4.3.a
+    public static void brightness_print() {
+        int sum = 0;
+        image_to_ycbcr_y();
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                sum += pixel.r;
+            }
+        }
+        int amount = bmp.image.getHeight() * bmp.image.getWidth();
+        System.out.println("average brightness: " + sum / amount);
+    }
+    public static void contrast_print() {
+        int amount = bmp.image.getHeight() * bmp.image.getWidth();
+        // brightness
+        int brightness_sum = 0;
+        image_to_ycbcr_y();
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                brightness_sum += pixel.r;
+            }
+        }
+        int u = brightness_sum / amount;
+        
+        // abweichung
+        int osum = 0;
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                osum += Math.pow(pixel.r - u, 2);
+            }
+        }
+        double o = Math.sqrt(osum / amount);
+        System.out.println("standartabweichung: " + o);
+    }
+    // aufgabe 4.3.b
+    public static void add_brightness(int b) {
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* Done ***************
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    pixel.r + b,
+                    pixel.g + b,
+                    pixel.b + b
+                );
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    }
     public static void readrgb() {
         // BGR schreiben horizontal 2.1.
         System.out.println("horizontal rgb");
@@ -324,19 +376,22 @@ public final class bmp_io {
             else if (args[2].compareTo("ycbcr_cr") == 0) {
                 image_to_ycbcr_cr();
             }
+            else if (args[2].compareTo("brightness_print") == 0) {
+                brightness_print();
+            }
+            else if (args[2].compareTo("contrast_print") == 0) {
+                contrast_print();
+            }
+            else if (args[2].compareTo("add_brightness") == 0) {
+                int v = args.length == 4 ? Integer.parseInt(args[3]) : 5;
+                add_brightness(v);
+            }
         }
         else {
-            // erzeuge graustufenbild
-            graustufen();
-            // downsampling
-            //downsampling();
-            // bitreduzierung
-            //bitreducing();
-            // bitreduzierung differenz
-            //bitreducingdif();
         }
         
         try {
+            System.out.println("saving image under: " + outFilename);
             BmpWriter.write_bmp(out, bmp);
         } finally {
             out.close();
