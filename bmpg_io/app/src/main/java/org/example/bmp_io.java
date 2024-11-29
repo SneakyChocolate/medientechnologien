@@ -52,6 +52,7 @@ public final class bmp_io {
 				writer.println(entry.getKey() + ": " + entry.getValue());
 			}
 			writer.close();
+			System.out.println("created file at: " + filename);
 		} catch (Exception e) {
 			System.out.println("file couldnt be created");
 		}
@@ -386,6 +387,7 @@ public final class bmp_io {
 			else if (args[2].compareTo("add_brightness") == 0) {
 				int v = args.length == 4 ? Integer.parseInt(args[3]) : 5;
 				add_brightness(v);
+				ycbcr_values(outFilename + "_brightness_values_"+v+".txt");
 			}
 		}
 		else {
