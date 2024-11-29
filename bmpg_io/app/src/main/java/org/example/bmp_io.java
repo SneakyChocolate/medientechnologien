@@ -56,6 +56,19 @@ public final class bmp_io {
             System.out.println("file couldnt be created");
         }
     }
+    // aufgabe 4.3.a
+    public static void brightness_print() {
+        int sum = 0;
+        image_to_ycbcr_y();
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                sum += pixel.r;
+            }
+        }
+        int amount = bmp.image.getHeight() * bmp.image.getWidth();
+        System.out.println("average brightness: " + sum / amount);
+    }
     public static void readrgb() {
         // BGR schreiben horizontal 2.1.
         System.out.println("horizontal rgb");
@@ -326,14 +339,7 @@ public final class bmp_io {
             }
         }
         else {
-            // erzeuge graustufenbild
-            graustufen();
-            // downsampling
-            //downsampling();
-            // bitreduzierung
-            //bitreducing();
-            // bitreduzierung differenz
-            //bitreducingdif();
+            brightness_print();
         }
         
         try {
