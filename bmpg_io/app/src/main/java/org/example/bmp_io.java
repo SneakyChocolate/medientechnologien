@@ -110,6 +110,22 @@ public final class bmp_io {
 			}
 		}
 	}
+	// aufgabe 4.3.c
+	public static void multiply_contrast(double k) {
+		image_to_ycbcr_y();
+		for (int y = 0; y < bmp.image.getHeight(); y++) {
+			for (int x = 0; x < bmp.image.getWidth(); x++) {
+				// ********* Done ***************
+				var pixel = bmp.image.getRgbPixel(x, y);
+				var newpixel = new PixelColor(
+					(pixel.r - 128) * k + 128,
+					(pixel.g - 128) * k + 128,
+					(pixel.b - 128) * k + 128
+				);
+				rgbImage.setRgbPixel(x, y, newpixel);
+			}
+		}
+	}
 	public static void readrgb() {
 		// BGR schreiben horizontal 2.1.
 		System.out.println("horizontal rgb");
@@ -388,6 +404,11 @@ public final class bmp_io {
 				int v = args.length == 4 ? Integer.parseInt(args[3]) : 5;
 				add_brightness(v);
 				ycbcr_values(outFilename + "_brightness_values_"+v+".txt");
+			}
+			else if (args[2].compareTo("multiply_contrast") == 0) {
+				double k = args.length == 4 ? Double.parseDouble(args[3]) : 1;
+				multiply_contrast(k);
+				ycbcr_values(outFilename + "_contrast_values_"+k+".txt");
 			}
 		}
 		else {
