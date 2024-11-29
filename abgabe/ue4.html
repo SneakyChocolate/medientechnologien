@@ -296,7 +296,7 @@
         </div>
     </div>
 
-    Code für die Helligkeitsänderung:
+    Code für die Mittelwert der Helligkeit:
     <!-- #region code -->
     <pre>
         public static void brightness_print() {
@@ -375,9 +375,138 @@
             <img src="./aufgabe4-images/Nature_Gruppe4_add_brightness_80.bmp" alt="">
         </div>
     </div>
+    
+    <p>Helligkeit: +80</p>
+    <img src="./aufgabe4-images/Manmade_Gruppe4_brightness_80_histogramm.png" alt="">
+    <p>Helligkeit: +80</p>
+    <img src="./aufgabe4-images/Nature_Gruppe4_brightness_80_histogramm.png" alt="">
 
-    <img src="./aufgabe4-images/Manmade_Gruppe4_add_brightness_80_histogram.bmp" alt="">
-    <img src="./aufgabe4-images/Nature_Gruppe4_add_brightness_80_histogram.bmp" alt="">
+    <pre>  
+        public static void add_brightness(int b) {
+            image_to_ycbcr_y();
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    var pixel = bmp.image.getRgbPixel(x, y);
+                    var newpixel = new PixelColor(
+                        pixel.r + b,
+                        pixel.g + b,
+                        pixel.b + b
+                    );
+                    rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }</pre>
+
+    <h2>c)</h2>
+    
+    <p>Kontrast: {0.2; 0.4; 0.8; 1.0}</p>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_0.2.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_0.4.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_0.8.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_1.0.bmp" alt="">
+        </div>
+    </div>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_0.2.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_0.4.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_0.8.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_1.0.bmp" alt="">
+        </div>
+    </div>
+    
+    <p>Kontrast: {-0.2; -0.4; -0.8; -1.0}</p>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_-0.2.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_-0.4.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_-0.8.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_-1.0.bmp" alt="">
+        </div>
+    </div>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_-0.2.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_-0.4.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_-0.8.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_-1.0.bmp" alt="">
+        </div>
+    </div>
+
+    <p>Kontrast: {1.5; 2.5; 5.0; 10.0}</p>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_1.5.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_2.5.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_5.0.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Manmade_Gruppe4_multiply_contrast_10.0.bmp" alt="">
+        </div>
+    </div>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_1.5.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_2.5.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_5.0.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe4-images/Nature_Gruppe4_multiply_contrast_10.0.bmp" alt="">
+        </div>
+    </div>
+
+    <pre>    
+        public static void multiply_contrast(double k) {
+        image_to_ycbcr_y();
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                var pixel = bmp.image.getRgbPixel(x, y);
+                var newpixel = new PixelColor(
+                    (pixel.r - 128) * k + 128,
+                    (pixel.g - 128) * k + 128,
+                    (pixel.b - 128) * k + 128
+                );
+                rgbImage.setRgbPixel(x, y, newpixel);
+            }
+        }
+    }</pre>
 </body>
 
 </html>
