@@ -7,9 +7,9 @@ public class PixelColor {
 	public int g;
 	
 	public PixelColor(int r, int g, int b) {
-		this.r = r;
-		this.b = b;
-		this.g = g;
+		this.r = r > 255 ? 255 : (r < 0 ? 0 : r);
+		this.b = b > 255 ? 255 : (b < 0 ? 0 : b);
+		this.g = g > 255 ? 255 : (g < 0 ? 0 : g);
 	}
 
     @Override
