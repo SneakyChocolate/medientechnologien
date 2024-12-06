@@ -9,7 +9,8 @@ function run_amplificate() {
   run $1 amplificate 3 &&\
   run $1 amplificate 6 &&\
   run $1 amplificate 9 &&\
-  run $1 amplificate 12
+  run $1 amplificate 12 &&\
+  run $1 amplificate 50
 }
 
 run_amplificate Musik_Gruppe4 &&\
