@@ -1,5 +1,4 @@
 #!/bin/bash
-cd wave_io_vorlage &&\
 
 function run() {
   # $1 = name, $2 = sample
