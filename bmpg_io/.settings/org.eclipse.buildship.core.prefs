@@ -1,7 +1,11 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=6b371a4b8904412cdc3a51ade2eb016682f79fe1
+<<<<<<< HEAD
 arguments=--init-script C\:\\Users\\pnicl\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.37.0\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\pnicl\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.37.0\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\protobuf\\init.gradle
+=======
+arguments=--init-script /home/linuxbrew/.linuxbrew/Cellar/jdtls/1.42.0/libexec/configuration/org.eclipse.osgi/58/0/.cp/gradle/init/init.gradle
+>>>>>>> a2ae55484880491b14846d4c2225d176d82eab28
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
