@@ -527,10 +527,23 @@
             }
         }
     }</pre>
+
     <p>
-        Wenn die Helligkeit veraendert wird, dann verschiebt sich das Histogramm nach rechts, wenn sie erhoeht wird und nach links wenn sie verringert wird.
-        Kontrastaenderungen fuehren zu einer Streckung und Stauchung des Histogramms, entlang der X und Y Achse.
-    </p>
+        Wenn die Helligkeit erhöht wird, verschiebt sich das Histogramm nach rechts, während es bei einer Verringerung nach links verschoben wird. 
+        Bei extremen Werten oberhalb von 255 oder unterhalb von 0 werden die Werte in den 8-Bit-Farbraum zurückgeführt, was zu einem Detailverlust führt.
+        <br>
+        <br>
+        Eine Kontrasterhöhung bewirkt, dass das Histogramm gestaucht wird, während es sich bei einer Verringerung streckt. Im Vergleich zum Originalbild (Aufgabe 2) 
+        ist bei einem Kontrastwert von 0,2 die ursprüngliche Form des Histogramms noch erkennbar, während sie bei einem Kontrastwert von 10 nahezu vollständig verloren geht, 
+        da die Werte im 8-Bit-Bereich kaum darstellbar sind.
+        <br>
+        <br>
+        Bei einem Kontrastwert von 0 wird das Bild einfarbig, weil alle Helligkeitswerte durch die Multiplikation mit 0 auf einen mittleren Wert 
+        (128 bei einem neutralen Grauwert) reduziert werden.
+        <br>
+        <br>    
+        Negative Kontrastwerte kehren die Helligkeit um, indem sie beispielsweise bei einem Wert von -1 die originalen Helligkeitswerte spiegeln, 
+        so dass das Bild wie in einem Negativ aussieht.</p>
 </body>
 
 </html>
