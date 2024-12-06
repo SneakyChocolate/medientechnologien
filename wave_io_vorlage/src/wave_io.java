@@ -92,7 +92,7 @@ public class wave_io {
 	}
 
 	private static void amplificate(int db) {
-		float a = (float) Math.pow(10, db / 20);
+		double a = Math.pow(10.0, (double) db / 20.0);
 		for (int i = 0; i < samples; i++) {
 			// ********* Done ***************
 			float f_sound = readWavFile.sound[i];
@@ -138,6 +138,7 @@ public class wave_io {
 				} else if (args[2].compareTo("amplificate") == 0) {
 					if (args.length >= 4) {
 						int db = Integer.parseInt(args[3]);
+						System.out.println("db: " + db);
 						amplificate(db);
 					}
 				}
