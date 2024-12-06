@@ -4,7 +4,11 @@
 arguments=
 auto.sync=false
 build.scans.enabled=false
+<<<<<<< HEAD
+connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(8.9))
+=======
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
+>>>>>>> a2ae55484880491b14846d4c2225d176d82eab28
 connection.project.dir=..
 eclipse.preferences.version=1
 gradle.user.home=
