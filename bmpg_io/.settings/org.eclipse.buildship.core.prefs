@@ -1,14 +1,14 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=6b371a4b8904412cdc3a51ade2eb016682f79fe1
-arguments=--init-script /home/jonas/.cache/jdtls/config/org.eclipse.osgi/246/0/.cp/gradle/init/init.gradle
+arguments=--init-script C\:\\Users\\pnicl\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.37.0\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\pnicl\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.37.0\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\protobuf\\init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
-connection.project.dir=app
+connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=/usr/lib/jvm/java-21-openjdk-amd64
+java.home=C\:/Program Files/Java/jdk-23
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true
