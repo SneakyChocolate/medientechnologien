@@ -11,7 +11,8 @@
 
 <body>
 
-    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0" title="error">
+    <iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0"
+        title="error">
         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite
             &uuml;ber den
             folgenden.</p>
@@ -20,29 +21,181 @@
     <h2>Übung 5</h2>
     <h3>Aufgabe 1</h3>
     <h2>a)</h2>
-    <p>Original: </p>
-    <audio controls>
-        <source src="./ue5-audios/Musik_Gruppe4.wav" type="audio/wav">
-    </audio>
+    <div class="gallery">
+        <div class="gallery-item">
+            <p>Original: </p>
+            <audio controls>
+                <source src="./ue5-audios/Musik_Gruppe4.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>3 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_3.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>6 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_6.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>9 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_9.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>12 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_12.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>20 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_20.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>50 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_50.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="gallery-item">
+            <p>-20 dB: </p>
+            <audio controls>
+                <source src="./ue5-outputs/Musik_Gruppe4_amplificate_-20.wav" type="audio/wav">
+            </audio>
+        </div>
+    </div>
+    <br>
+    <img src="./ue5-outputs/Musik_amplified_20_clippingpng.png" alt="" style="min-width: 600px;">
+    
+    <!-- #region amplificate() code -->
+    <pre>    private static void amplificate(int db) {
+        double a = Math.pow(10.0, (double) db / 20.0);
+        System.out.println("a: " + a);
+        for (int i = 0; i < samples; i++) {
+            float f_sound = readWavFile.sound[i];
+            f_sound *= a;
+            if (f_sound > Short.MAX_VALUE) {
+                f_sound = Short.MAX_VALUE;
+            } else if (f_sound Short.MIN_VALUE) {
+                f_sound = Short.MIN_VALUE;
+            }
+            readWavFile.sound[i] = (short) f_sound;
+        }
+    }</pre>
+    <!-- #endregion -->
+    <h2>b)</h2>
+    <p>Eine Verzerrung ist bis 12 noch nicht wahrnehmbar, aber ab spätestens 20dB ist diese wahrnehmbar.</p>
+    <h2>c)</h2>
     <p>3 dB: </p>
     <audio controls>
-        <source src="./ue5-outputs/Musik_Gruppe4_amplificate_3.wav" type="audio/wav">
+        <source src="./ue5-outputs/sine_1k_08_amplificate_3.wav" type="audio/wav">
     </audio>
     <p>6 dB: </p>
     <audio controls>
-        <source src="./ue5-outputs/Musik_Gruppe4_amplificate_6.wav" type="audio/wav">
+        <source src="./ue5-outputs/sine_1k_08_amplificate_6.wav" type="audio/wav">
     </audio>
     <p>9 dB: </p>
     <audio controls>
-        <source src="./ue5-outputs/Musik_Gruppe4_amplificate_9.wav" type="audio/wav">
+        <source src="./ue5-outputs/sine_1k_08_amplificate_9.wav" type="audio/wav">
     </audio>
     <p>12 dB: </p>
     <audio controls>
-        <source src="./ue5-outputs/Musik_Gruppe4_amplificate_12.wav" type="audio/wav">
+        <source src="./ue5-outputs/sine_1k_08_amplificate_12.wav" type="audio/wav">
     </audio>
-    <h2>b)</h2>
-    <p>Eine Verzerrung ist ab 9dB wahrnehmbar.</p>
-    <h2>c)</h2>
+    <br>
+    <div class="gallery">
+        <div class="gallery-item">
+            <p>Sinus verstärkt um 3 dB:</p>
+            <img src="ue5-outputs/sine_amplificate_3.png" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Sinus verstärkt um 6 dB:</p>
+            <img src="ue5-outputs/sine_amplificate_6.png" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Sinus verstärkt um 9 dB:</p>
+            <img src="ue5-outputs/sine_amplificate_9.png" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Sinus verstärkt um 12 dB:</p>
+            <img src="ue5-outputs/sine_amplificate_12_1.png" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Sinus verstärkt um 12 dB:</p>
+            <img src="ue5-outputs/sine_amplificate_12_2.png" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Sinus verstärkt um 12 dB:</p>
+            <img src="ue5-outputs/sine_amplificate_12_3.png" alt="">
+        </div>
+    </div>
+
+    <table border="1">
+        <tr class="header-row">
+            <td>Verstärung in dB</td>
+            <td>Frequenz</td>
+            <td>Amplitude</td>
+            <td>Summe der Potenzen ab Index 1</td>
+            <td>Summe der Potenzen ab Index 2</td>
+            <td>Wurzel der Division</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1000</td>
+          <td>84.3</td>
+          <td>7106.49</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>1000</td>
+          <td>87.3</td>
+          <td>7621.29</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>1000</td>
+          <td>90.3</td>
+          <td>8154.09</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>1000</td>
+          <td>92</td>
+          <td>17369</td>
+          <td>8905</td>
+          <td>0.716027256</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>2950</td>
+          <td>72</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>4983</td>
+          <td>61</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p>Damit sehen wir, dass es nur für den Sinus, welcher um 12 dB verstärkt wird, einen Klirrfaktor gibt, welcher 0.716 beträgt.</p>
 </body>
 
 </html>
