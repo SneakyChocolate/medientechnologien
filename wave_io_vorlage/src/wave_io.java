@@ -137,6 +137,18 @@ public class wave_io {
 		readWavFile.sound = echo_sound;
 	}
 
+	private static void filter() {
+		for (int i = 0; i < samples; i++) {
+			// ********* TODO ***************
+			double f_sound = 0;
+			if (i > 0) {
+				f_sound = readWavFile.sound[i] * 0.5 - readWavFile.sound[i-1] * 0.45;
+			}
+			readWavFile.sound[i] = (short) f_sound;
+		}
+	}
+	
+
 	public static void main(String[] argsp) {
 		args = argsp;
 		if (args.length < 1) {
@@ -183,6 +195,9 @@ public class wave_io {
 						System.out.println("ms: " + ms);
 						echo(ms, 0.6);
 					}
+				}
+				else if (args[2].compareTo("filter") == 0) {
+					filter();
 				}
 				// filename
 				if (args.length == 3) {
