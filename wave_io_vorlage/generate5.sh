@@ -35,7 +35,9 @@ run_amplificate Sprache_Gruppe4 &&\
 run_amplificate sine_1k_08
 
 run_echo Musik_Gruppe4 &&\
+run_echo Noise_08 &&\
 run_echo Sprache_Gruppe4 &&\
+run_echo sine_1k_08
 
 ls ../abgabe/ue5-outputs
 

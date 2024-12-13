@@ -109,19 +109,21 @@ public class wave_io {
 
 	
 	private static void echo(int ms, double factor) {
-		int indicies = (int) (((double) ms / 1000.0) * sampleRate);
-		numFrames += indicies * numChannels;
-		short[] echo_sound = new short[readWavFile.sound.length + indicies];
-		for (int i = 0; i < echo_sound.length; i++) {
+		int indicies = (int) (((double) ms / 1000.0) * sampleRate * numChannels);
+		System.out.println("indicies: " + indicies);
+		numFrames += indicies / numChannels;
+		int new_samples = samples + indicies;
+		short[] echo_sound = new short[new_samples];
+		for (int i = 0; i < new_samples; i++) {
 			// ********* Done ***************
 			double add = 0;
-			if (i < indicies) {
+			if (i < indicies && i < samples) {
 				add = readWavFile.sound[i];
 			}
 			else if (i < samples) {
 				add = readWavFile.sound[i] + readWavFile.sound[i - indicies] * factor;
 			}
-			else {
+			else if (i >= indicies) {
 				add = readWavFile.sound[i - indicies] * factor;
 			}
 			
@@ -130,7 +132,7 @@ public class wave_io {
 			} else if (add < Short.MIN_VALUE) {
 				add = Short.MIN_VALUE;
 			}
-			echo_sound[i] = (short) add;
+			echo_sound[i] = (short) (add / (1 + factor));
 		}
 		readWavFile.sound = echo_sound;
 	}
