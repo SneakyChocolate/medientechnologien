@@ -73,7 +73,7 @@
     </div>
     <br>
     <img src="./ue5-outputs/Musik_amplified_20_clippingpng.png" alt="" style="min-width: 600px;">
-    
+
     <!-- #region amplificate() code -->
     <pre>    private static void amplificate(int db) {
         double a = Math.pow(10.0, (double) db / 20.0);
@@ -147,55 +147,106 @@
             <td>Wurzel der Division</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>1000</td>
-          <td>84.3</td>
-          <td>7106.49</td>
-          <td>0</td>
-          <td>0</td>
+            <td>3</td>
+            <td>1000</td>
+            <td>84.3</td>
+            <td>7106.49</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
-          <td>6</td>
-          <td>1000</td>
-          <td>87.3</td>
-          <td>7621.29</td>
-          <td>0</td>
-          <td>0</td>
+            <td>6</td>
+            <td>1000</td>
+            <td>87.3</td>
+            <td>7621.29</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
-          <td>9</td>
-          <td>1000</td>
-          <td>90.3</td>
-          <td>8154.09</td>
-          <td>0</td>
-          <td>0</td>
+            <td>9</td>
+            <td>1000</td>
+            <td>90.3</td>
+            <td>8154.09</td>
+            <td>0</td>
+            <td>0</td>
         </tr>
         <tr>
-          <td>12</td>
-          <td>1000</td>
-          <td>92</td>
-          <td>17369</td>
-          <td>8905</td>
-          <td>0.716027256</td>
+            <td>12</td>
+            <td>1000</td>
+            <td>92</td>
+            <td>17369</td>
+            <td>8905</td>
+            <td>0.716027256</td>
         </tr>
         <tr>
-          <td></td>
-          <td>2950</td>
-          <td>72</td>
-          <td></td>
-          <td></td>
-          <td></td>
+            <td></td>
+            <td>2950</td>
+            <td>72</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td>4983</td>
-          <td>61</td>
-          <td></td>
-          <td></td>
-          <td></td>
+            <td></td>
+            <td>4983</td>
+            <td>61</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
-      </table>
-      <p>Damit sehen wir, dass es nur für den Sinus, welcher um 12 dB verstärkt wird, einen Klirrfaktor gibt, welcher 0.716 beträgt.</p>
+    </table>
+    <p>Damit sehen wir, dass es nur für den Sinus, welcher um 12 dB verstärkt wird, einen Klirrfaktor gibt, welcher
+        0.716 beträgt.</p>
+
+    <h3>Aufgabe 2</h3>
+    <h2>a)</h2>
+    <p><b>N = Δt * fa </b><br>
+        10ms: N = 0.01s * 44100 = 441 <br>
+        100ms: N = 0.1s * 44100 = 4410 <br>
+        200ms: N = 0.2s * 44100 = 8820 <br>
+        Wenn man 2 Kanäle hat, dann müsste N = 2N sein.</p>
+
+    <pre>
+        <!-- TODO: Code -->
+    </pre>
+
+    <h2>b)</h2>
+    <p>Original von Musik:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Musik_Gruppe4.wav" type="audio/wav">
+    </audio>
+    <p>10 ms:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Musik_Gruppe4_echo_10.wav" type="audio/wav">
+    </audio>
+    <p>100 ms:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Musik_Gruppe4_echo_100.wav" type="audio/wav">
+    </audio>
+    <p>200 ms:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Musik_Gruppe4_echo_200.wav" type="audio/wav">
+    </audio>
+    
+    <p>Original von Sprache:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Sprache_Gruppe4.wav" type="audio/wav">
+    </audio>
+    <p>10 ms:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Sprache_Gruppe4_echo_10.wav" type="audio/wav">
+    </audio>
+    <p>100 ms:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Sprache_Gruppe4_echo_100.wav" type="audio/wav">
+    </audio>
+    <p>200 ms:</p>
+    <audio controls>
+        <source src="./ue5-outputs/Sprache_Gruppe4_echo_200.wav" type="audio/wav">
+    </audio>
+
+    <h3>Aufgabe 3</h3>
+    <h2>a)</h2>
 </body>
 
 </html>
