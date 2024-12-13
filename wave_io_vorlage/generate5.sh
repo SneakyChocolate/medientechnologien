@@ -10,7 +10,7 @@ function run() {
 
 compile
 
-read
+read -p "compiled. press enter to run..."
 
 function run_amplificate() {
 	run $1 amplificate "3" &&\
