@@ -30,7 +30,8 @@ function run_echo() {
 }
 
 function run_filter() {
-	run $1 filter
+	run $1 filter_p
+	run $1 filter_n
 }
 
 run_amplificate Musik_Gruppe4 &&\
