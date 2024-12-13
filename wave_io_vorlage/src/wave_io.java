@@ -107,6 +107,34 @@ public class wave_io {
 		}
 	}
 
+	
+	private static void echo(int ms, double factor) {
+		int indicies = (int) (((double) ms / 1000.0) * sampleRate);
+		numFrames += indicies * numChannels;
+		short[] echo_sound = new short[readWavFile.sound.length + indicies];
+		for (int i = 0; i < echo_sound.length; i++) {
+			// ********* Done ***************
+			double add = 0;
+			if (i < indicies) {
+				add = readWavFile.sound[i];
+			}
+			else if (i < samples) {
+				add = readWavFile.sound[i] + readWavFile.sound[i - indicies] * factor;
+			}
+			else {
+				add = readWavFile.sound[i - indicies] * factor;
+			}
+			
+			if (add > Short.MAX_VALUE) {
+				add = Short.MAX_VALUE;
+			} else if (add < Short.MIN_VALUE) {
+				add = Short.MIN_VALUE;
+			}
+			echo_sound[i] = (short) add;
+		}
+		readWavFile.sound = echo_sound;
+	}
+
 	public static void main(String[] argsp) {
 		args = argsp;
 		if (args.length < 1) {
@@ -130,19 +158,31 @@ public class wave_io {
 		outFilename = args[1];
 		try {
 			if (args.length >= 3) {
+				// different methods
 				if (args[2].compareTo("downsample") == 0) {
 					downsample();
-				} else if (args[2].compareTo("bitred") == 0) {
+				}
+				else if (args[2].compareTo("bitred") == 0) {
 					bitreduzierung(8);
-				} else if (args[2].compareTo("bitreddif") == 0) {
+				}
+				else if (args[2].compareTo("bitreddif") == 0) {
 					bitreduzierungdiff(10);
-				} else if (args[2].compareTo("amplificate") == 0) {
+				}
+				else if (args[2].compareTo("amplificate") == 0) {
 					if (args.length >= 4) {
 						int db = Integer.parseInt(args[3]);
 						System.out.println("db: " + db);
 						amplificate(db);
 					}
 				}
+				else if (args[2].compareTo("echo") == 0) {
+					if (args.length >= 4) {
+						int ms = Integer.parseInt(args[3]);
+						System.out.println("ms: " + ms);
+						echo(ms, 0.6);
+					}
+				}
+				// filename
 				if (args.length == 3) {
 					outFilename += "_" + args[2] + ".wav";
 				} else if (args.length == 4) {
