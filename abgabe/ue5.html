@@ -206,14 +206,42 @@
         200ms: N = 0.2s * 44100 = 8820 <br>
         Wenn man 2 Kanäle hat, dann müsste N = 2N sein.</p>
 
+    <p>Funktion zur Echo Generierung:</p>
     <pre>
-        <!-- TODO: Code -->
+        private static void echo(int ms, double factor) {
+            int indicies = (int) (((double) ms / 1000.0) * sampleRate * numChannels);
+            System.out.println("indicies: " + indicies);
+            numFrames += indicies / numChannels;
+            int new_samples = samples + indicies;
+            short[] echo_sound = new short[new_samples];
+            for (int i = 0; i < new_samples; i++) {
+                // ********* Done ***************
+                double add = 0;
+                if (i < indicies && i < samples) {
+                    add = readWavFile.sound[i];
+                }
+                else if (i < samples) {
+                    add = readWavFile.sound[i] + readWavFile.sound[i - indicies] * factor;
+                }
+                else if (i >= indicies) {
+                    add = readWavFile.sound[i - indicies] * factor;
+                }
+                
+                if (add > Short.MAX_VALUE) {
+                    add = Short.MAX_VALUE;
+                } else if (add < Short.MIN_VALUE) {
+                    add = Short.MIN_VALUE;
+                }
+                echo_sound[i] = (short) (add / (1 + factor));
+            }
+            readWavFile.sound = echo_sound;
+        }
     </pre>
 
     <h2>b)</h2>
     <p>Original von Musik:</p>
     <audio controls>
-        <source src="./ue5-outputs/Musik_Gruppe4.wav" type="audio/wav">
+        <source src="./ue5-audios/Musik_Gruppe4.wav" type="audio/wav">
     </audio>
     <p>10 ms:</p>
     <audio controls>
@@ -230,7 +258,7 @@
     
     <p>Original von Sprache:</p>
     <audio controls>
-        <source src="./ue5-outputs/Sprache_Gruppe4.wav" type="audio/wav">
+        <source src="./ue5-audios/Sprache_Gruppe4.wav" type="audio/wav">
     </audio>
     <p>10 ms:</p>
     <audio controls>
