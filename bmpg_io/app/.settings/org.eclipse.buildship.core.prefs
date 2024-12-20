@@ -1,20 +1,16 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=6b371a4b8904412cdc3a51ade2eb016682f79fe1
-arguments=
+>>>>>>>=a2ae55484880491b14846d4c2225d176d82eab28
+arguments=--init-script /home/linuxbrew/.linuxbrew/Cellar/jdtls/1.42.0/libexec/configuration/org.eclipse.osgi/58/0/.cp/gradle/init/init.gradle
 auto.sync=false
 build.scans.enabled=false
-<<<<<<< HEAD
 connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(8.9))
-=======
-connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
->>>>>>> a2ae55484880491b14846d4c2225d176d82eab28
 connection.project.dir=..
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=
+java.home=/usr/lib/jvm/java-21-openjdk-amd64
 jvm.arguments=
 offline.mode=false
-override.workspace.settings=false
-show.console.view=false
-show.executions.view=false
+override.workspace.settings=true
+show.console.view=true
+show.executions.view=true

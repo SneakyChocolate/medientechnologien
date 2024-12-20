@@ -1,7 +1,7 @@
 package org.example;
 
 
-public class PixelColor {
+public class PixelColor implements Cloneable {
 	public int r;
 	public int b;
 	public int g;
@@ -15,6 +15,9 @@ public class PixelColor {
 		this.r = (int) (r > 255 ? 255 : (r < 0 ? 0 : r));
 		this.b = (int) (b > 255 ? 255 : (b < 0 ? 0 : b));
 		this.g = (int) (g > 255 ? 255 : (g < 0 ? 0 : g));
+	}
+	public PixelColor copy() {
+		return new PixelColor(r, g, b);
 	}
 
     @Override
