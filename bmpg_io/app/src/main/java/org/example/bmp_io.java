@@ -83,6 +83,38 @@ public final class bmp_io {
 			}
 		}
 	}
+	public static void blur_diff(int range) {
+		for (int y = 0; y < bmp.image.getHeight(); y++) {
+			for (int x = 0; x < bmp.image.getWidth(); x++) {
+				// ********* Done ***************
+				double r = 0;
+				double g = 0;
+				double b = 0;
+				int neighbors = 0;
+				for (int nx = -range; nx <= range; nx ++) {
+					for (int ny = -range; ny <= range; ny ++) {
+						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+						neighbors ++;
+						var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+						r += pixel.r;
+						g += pixel.g;
+						b += pixel.b;
+					}
+				}
+				
+				PixelColor blurPixel = new PixelColor(r / neighbors, g / neighbors, b / neighbors);
+				PixelColor pixel = bmp.image.getRgbPixel(x, y);
+				PixelColor newpixel = new PixelColor(
+					128 + (pixel.r - blurPixel.r),
+					128 + (pixel.g - blurPixel.g),
+					128 + (pixel.b - blurPixel.b)
+				);
+				
+				new_rgbImage.setRgbPixel(x, y, newpixel);
+			}
+		}
+	}
 	// aufgabe 4.3.a
 	public static void brightness_print() {
 		int sum = 0;
@@ -233,10 +265,6 @@ public final class bmp_io {
 					(pixel.g >> reduced_bits) << reduced_bits,
 					(pixel.b >> reduced_bits) << reduced_bits
 				);
-				if (x == 0 && y == 0) {
-					//System.out.println(pixel.toString());
-					//System.out.println(newpixel.toString());
-				}
 				var difpixel = new PixelColor(
 					(pixel.r - newpixel.r) << (bitsPerColor - reduced_bits),
 					(pixel.g - newpixel.g) << (bitsPerColor - reduced_bits),
@@ -439,7 +467,15 @@ public final class bmp_io {
 			}
 			else if (args[2].compareTo("blur") == 0) {
 				int range = args.length == 4 ? Integer.parseInt(args[3]) : 3;
+				graustufen();
+				bmp.image = new_rgbImage;
 				blur(range);
+			}
+			else if (args[2].compareTo("blur_diff") == 0) {
+				int range = args.length == 4 ? Integer.parseInt(args[3]) : 3;
+				graustufen();
+				bmp.image = new_rgbImage;
+				blur_diff(range);
 			}
 		}
 		else {
