@@ -25,45 +25,50 @@ package org.example;
  */
 
 public final class RgbImage {
-	
+
 	protected int width;
 	protected int height;
-	protected int bitsPerPixel; 
+	protected int bitsPerPixel;
 	private PixelColor[] pixels;
-	
+
 	public RgbImage(int width, int height, int bitsPerPixel) {
 		this.width = width;
 		this.height = height;
 		this.bitsPerPixel = bitsPerPixel;
-		
+
 		if (width > Integer.MAX_VALUE / height)
 			throw new IllegalArgumentException("Image dimensions too large");
-	
+
 		pixels = new PixelColor[width * height];
 	}
-	
+	public RgbImage copy() {
+		var clone = new RgbImage(width, height, bitsPerPixel);
+		clone.pixels = this.pixels.clone();
+		return clone;
+	}
+
 	public PixelColor getRgbPixel(int x, int y) {
 		if (x < 0 || x >= width || y < 0 || y >= height)
 			throw new IndexOutOfBoundsException();
-		
-//		System.out.println("schreibe " 
-//							+ " blau " + pixels[y * width + x].b  
-//							+ " gruen " + pixels[y * width + x].g  
-//							+ " rot " + pixels[y * width + x].r);
+
+		// System.out.println("schreibe "
+		// + " blau " + pixels[y * width + x].b
+		// + " gruen " + pixels[y * width + x].g
+		// + " rot " + pixels[y * width + x].r);
 		return pixels[y * width + x];
 	}
-	
+
 	public void setRgbPixel(int x, int y, PixelColor pixel) {
 		if (x < 0 || x >= width || y < 0 || y >= height)
 			throw new IndexOutOfBoundsException();
-		
+
 		pixels[y * width + x] = pixel;
-//		System.out.println("lese " 
-//							+ " blau " + pixels[y * width + x].b  
-//							+ " gruen " + pixels[y * width + x].g  
-//							+ " rot " + pixels[y * width + x].r);
-	}	
-	
+		// System.out.println("lese "
+		// + " blau " + pixels[y * width + x].b
+		// + " gruen " + pixels[y * width + x].g
+		// + " rot " + pixels[y * width + x].r);
+	}
+
 	public int getWidth() {
 		return this.width;
 	}
@@ -71,11 +76,8 @@ public final class RgbImage {
 	public int getHeight() {
 		return this.height;
 	}
-	
+
 	public int getBitsPerPixel() {
 		return this.bitsPerPixel;
 	}
 }
-
-
-

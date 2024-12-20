@@ -15,6 +15,7 @@ public final class bmp_io {
 	public static BmpImage bmp = null;
 	public static InputStream in;
 	public static RgbImage rgbImage;
+	public static RgbImage new_rgbImage;
 
 	public static void write_pixels(String filename) {
 		try {
@@ -55,6 +56,31 @@ public final class bmp_io {
 			System.out.println("created file at: " + filename);
 		} catch (Exception e) {
 			System.out.println("file couldnt be created");
+		}
+	}
+	public static void blur(int range) {
+		for (int y = 0; y < bmp.image.getHeight(); y++) {
+			for (int x = 0; x < bmp.image.getWidth(); x++) {
+				// ********* Done ***************
+				double r = 0;
+				double g = 0;
+				double b = 0;
+				int neighbors = 0;
+				for (int nx = -range; nx <= range; nx ++) {
+					for (int ny = -range; ny <= range; ny ++) {
+						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+						neighbors ++;
+						var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+						r += pixel.r;
+						g += pixel.g;
+						b += pixel.b;
+					}
+				}
+				PixelColor newpixel = new PixelColor(r / neighbors, g / neighbors, b / neighbors);
+				
+				new_rgbImage.setRgbPixel(x, y, newpixel);
+			}
 		}
 	}
 	// aufgabe 4.3.a
@@ -106,7 +132,7 @@ public final class bmp_io {
 					pixel.g + b,
 					pixel.b + b
 				);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -122,7 +148,7 @@ public final class bmp_io {
 					(pixel.g - 128) * k + 128,
 					(pixel.b - 128) * k + 128
 				);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -150,7 +176,7 @@ public final class bmp_io {
 				var pixel = bmp.image.getRgbPixel(x, y);
 				var nv = (int) (0.3 * pixel.r + 0.6 * pixel.g + 0.1 * pixel.b);
 				var newpixel = new PixelColor(nv, nv, nv);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -160,7 +186,7 @@ public final class bmp_io {
 				// ********* Done ***************
 				var ny = y - (y % pixels);
 				var pixel = bmp.image.getRgbPixel(x, ny);
-				rgbImage.setRgbPixel(x, y, pixel);
+				new_rgbImage.setRgbPixel(x, y, pixel);
 			}
 		}
 	}
@@ -170,7 +196,7 @@ public final class bmp_io {
 				// ********* Done ***************
 				var nx = x - (x % pixels);
 				var pixel = bmp.image.getRgbPixel(nx, y);
-				rgbImage.setRgbPixel(x, y, pixel);
+				new_rgbImage.setRgbPixel(x, y, pixel);
 			}
 		}
 	}
@@ -192,7 +218,7 @@ public final class bmp_io {
 					//System.out.println(pixel.toString());
 					//System.out.println(newpixel.toString());
 			    }
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -216,7 +242,7 @@ public final class bmp_io {
 					(pixel.g - newpixel.g) << (bitsPerColor - reduced_bits),
 					(pixel.b - newpixel.b) << (bitsPerColor - reduced_bits)
 				);
-				rgbImage.setRgbPixel(x, y, difpixel);
+				new_rgbImage.setRgbPixel(x, y, difpixel);
 			}
 		}
 	}
@@ -237,7 +263,7 @@ public final class bmp_io {
 				// ********* Done ***************
 				var pixel = bmp.image.getRgbPixel(x, y);
 				var newpixel = multiply_pixel(copy(pixel), r, g, b);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -272,7 +298,7 @@ public final class bmp_io {
 				var pixel = bmp.image.getRgbPixel(x, y);
 				var ycbcr = RGB_to_YCbCr(pixel);
 				var newpixel = YCbCr_to_RGB(ycbcr);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -285,7 +311,7 @@ public final class bmp_io {
 				ycbcr.g = 128;
 				ycbcr.b = 128;
 				var newpixel = YCbCr_to_RGB(ycbcr);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -298,7 +324,7 @@ public final class bmp_io {
 				ycbcr.r = 128;
 				ycbcr.b = 128;
 				var newpixel = YCbCr_to_RGB(ycbcr);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -311,7 +337,7 @@ public final class bmp_io {
 				ycbcr.r = 128;
 				ycbcr.g = 128;
 				var newpixel = YCbCr_to_RGB(ycbcr);
-				rgbImage.setRgbPixel(x, y, newpixel);
+				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
 	}
@@ -330,6 +356,7 @@ public final class bmp_io {
 		in = new FileInputStream(inFilename);
 		bmp = BmpReader.read_bmp(in);
 		rgbImage = bmp.image;
+		new_rgbImage = rgbImage.copy();
 
 		//readrgb();
 
@@ -410,12 +437,17 @@ public final class bmp_io {
 				multiply_contrast(k);
 				ycbcr_values(outFilename + "_contrast_values_"+k+".txt");
 			}
+			else if (args[2].compareTo("blur") == 0) {
+				int range = args.length == 4 ? Integer.parseInt(args[3]) : 3;
+				blur(range);
+			}
 		}
 		else {
 		}
 		
 		try {
 			System.out.println("saving image under: " + outFilename);
+			bmp.image = new_rgbImage;
 			BmpWriter.write_bmp(out, bmp);
 		} finally {
 			out.close();
