@@ -21,7 +21,7 @@
     <h2>Übung 6</h2>
     <h3>Aufgabe 1</h3>
     <h2>a)</h2>
-
+    <h3>Mittelwertfilter:</h3>
     <div class="gallery">
         <div class="gallery-item">
             <p>Kernelgröße: 3x3</p>
@@ -57,6 +57,193 @@
         <div class="gallery-item">
             <p>Kernelgröße: 19x19</p>
             <img src="./aufgabe6-images/Nature_Gruppe4_blur_9.bmp" alt="">
+        </div>
+    </div>
+
+    <h3>Wirkung:</h3>
+    <p>
+        Durch die Mittelwertbildung des 3x3Pixel Kernels wird ein Weichzeichnungsfilter erzeugt, der Pixel wird auf seine Umgebungspixel angeglichen.</p>
+
+    <h3>Code:</h3>
+    <!-- #region code -->
+    <pre>
+        public static void blur(int range) {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    double r = 0;
+                    double g = 0;
+                    double b = 0;
+                    int neighbors = 0;
+                    for (int nx = -range; nx <= range; nx ++) {
+                        for (int ny = -range; ny <= range; ny ++) {
+                            if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+                            if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+                            neighbors ++;
+                            var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+                            r += pixel.r;
+                            g += pixel.g;
+                            b += pixel.b;
+                        }
+                    }
+                    PixelColor newpixel = new PixelColor(r / neighbors, g / neighbors, b / neighbors);
+                    
+                    new_rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
+    <!-- #endregion -->
+
+    <h2>b)</h2>
+    <p>Entweder man wendet am Rand kein Filter,
+        Zero- oder Grauwert-Padding (grauer Rahmen), dabei wäre PixelColor rand = new PixelColor(0, 0, 0); oder ein
+        Grauwert,
+        Last-Value, Periodische Fortsetzung (letztem mit erstem Wert), Symmetrische Fortsetzung, Interpolative
+        Fortsetzung (Abschätzung der Werte)
+        oder eine Konstruktion spezieller Filtermasken an.</p>
+
+    <p>Wir habe keine dieser Methdoden verwendet, wir haben die Kernelgröße am Rand angepasst,
+        sodass nur die erreichbaren Pixel gefiltert werden und durch die Summe der erreichbaren Pixel dividiert wird.
+        (siehe code)</p>
+
+    <h2>c)</h2>
+    <h3>Differenzbild:</h3>
+    <div class="gallery">
+        <div class="gallery-item">
+            <p>Kernelgröße: 3x3</p>
+            <img src="./aufgabe6-images/Manmade_Gruppe4_blur_diff_1.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Kernelgröße: 5x5</p>
+            <img src="./aufgabe6-images/Manmade_Gruppe4_blur_diff_2.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Kernelgröße: 7x7</p>
+            <img src="./aufgabe6-images/Manmade_Gruppe4_blur_diff_3.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Kernelgröße: 19x19</p>
+            <img src="./aufgabe6-images/Manmade_Gruppe4_blur_diff_9.bmp" alt="">
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <p>Kernelgröße: 3x3</p>
+            <img src="./aufgabe6-images/Nature_Gruppe4_blur_diff_1.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Kernelgröße: 5x5</p>
+            <img src="./aufgabe6-images/Nature_Gruppe4_blur_diff_2.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Kernelgröße: 7x7</p>
+            <img src="./aufgabe6-images/Nature_Gruppe4_blur_diff_3.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <p>Kernelgröße: 19x19</p>
+            <img src="./aufgabe6-images/Nature_Gruppe4_blur_diff_9.bmp" alt="">
+        </div>
+    </div>
+
+    <h3>Code:</h3>
+    <!-- #region code -->
+    <pre>
+        public static void blur_diff(int range) {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    // ********* Done ***************
+                    double r = 0;
+                    double g = 0;
+                    double b = 0;
+                    int neighbors = 0;
+                    for (int nx = -range; nx <= range; nx ++) {
+                        for (int ny = -range; ny <= range; ny ++) {
+                            if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+                            if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+                            neighbors ++;
+                            var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+                            r += pixel.r;
+                            g += pixel.g;
+                            b += pixel.b;
+                        }
+                    }
+                    
+                    PixelColor blurPixel = new PixelColor(r / neighbors, g / neighbors, b / neighbors);
+                    PixelColor pixel = bmp.image.getRgbPixel(x, y);
+                    PixelColor newpixel = new PixelColor(
+                        128 + (pixel.r - blurPixel.r),
+                        128 + (pixel.g - blurPixel.g),
+                        128 + (pixel.b - blurPixel.b)
+                    );
+                    
+                    new_rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
+    <!-- #endregion -->
+
+    <h3>Aufgabe 2</h3>
+    <h2>a)</h2>
+
+    <p>Die Intensität des Zielpixels muss durch den Wert 4 geteilt, werden welcher der Mittelwert des Kernels ist.</p>
+
+    <h3>Gradientenfilter:</h3>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe6-images/Manmade_Gruppe4_gradient_filter_.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe6-images/Nature_Gruppe4_gradient_filter_.bmp" alt="">
+        </div>
+    </div>
+
+    <h3>Wirkung:</h3>
+    <p>Der Gradientenfilter schärft die Konturen des Bildes und sorgt für ein schärferes Bild.</p>
+
+    <h3>Code:</h3>
+    <pre>
+        public static void gradient() {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    double r = 0;
+                    double g = 0;
+                    double b = 0;
+                    int sum = 0;
+                    int range = 1;
+                    double[][] weightMap = {
+                        { 0,-2, 0},
+                        {-2,12,-2},
+                        { 0,-2, 0},
+                    };
+                    for (int nx = -range; nx <= range; nx ++) {
+                        for (int ny = -range; ny <= range; ny ++) {
+                            if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+                            if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+                            var weight = weightMap[ny + range][nx + range];
+                            sum += weight;
+                            var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+                            r += pixel.r * weight;
+                            g += pixel.g * weight;
+                            b += pixel.b * weight;
+                        }
+                    }
+                    PixelColor newpixel = new PixelColor(r / sum, g / sum, b / sum);
+                    
+                    new_rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
+
+    <h2>b)</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="./aufgabe6-images/Manmade_Gruppe4_.bmp" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./aufgabe6-images/Nature_Gruppe4_.bmp" alt="">
         </div>
     </div>
 </body>
