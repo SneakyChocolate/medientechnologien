@@ -147,6 +147,80 @@ public final class bmp_io {
 			}
 		}
 	}
+	public static void gradient_diff() {
+		for (int y = 0; y < bmp.image.getHeight(); y++) {
+			for (int x = 0; x < bmp.image.getWidth(); x++) {
+				// ********* Done ***************
+				double r = 0;
+				double g = 0;
+				double b = 0;
+				int sum = 0;
+				int range = 1;
+				double[][] weightMap = {
+					{ 0,-2, 0},
+					{-2,12,-2},
+					{ 0,-2, 0},
+				};
+				for (int nx = -range; nx <= range; nx ++) {
+					for (int ny = -range; ny <= range; ny ++) {
+						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+						var weight = weightMap[ny + range][nx + range];
+						sum += weight;
+						var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+						r += pixel.r * weight;
+						g += pixel.g * weight;
+						b += pixel.b * weight;
+					}
+				}
+				PixelColor gradientPixel = new PixelColor(r / sum, g / sum, b / sum);
+				PixelColor pixel = bmp.image.getRgbPixel(x, y);
+				PixelColor newpixel = new PixelColor(
+					128 + (pixel.r - gradientPixel.r),
+					128 + (pixel.g - gradientPixel.g),
+					128 + (pixel.b - gradientPixel.b)
+				);
+				
+				new_rgbImage.setRgbPixel(x, y, newpixel);
+			}
+		}
+	}
+	public static void median(int range) {
+		for (int y = 0; y < bmp.image.getHeight(); y++) {
+			for (int x = 0; x < bmp.image.getWidth(); x++) {
+				// ********* Done ***************
+				HashMap<PixelColor, Integer> colors = new HashMap<>();
+				for (int nx = -range; nx <= range; nx ++) {
+					for (int ny = -range; ny <= range; ny ++) {
+						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+						var neighborPixel = bmp.image.getRgbPixel(x + nx, y + ny);
+						var field = colors.get(neighborPixel);
+						if (field != null) {
+							field ++;
+						}
+						else {
+							colors.put(neighborPixel, 1);
+						}
+					}
+				}
+				PixelColor newpixel = null;
+				int count = 0;
+				for (var color : colors.keySet()) {
+					if (colors.get(color) > count) {
+						count = colors.get(color);
+						newpixel = color;
+					}
+				}
+
+				if (newpixel == null) {
+					throw new Error("pixel not here");
+				}
+				
+				new_rgbImage.setRgbPixel(x, y, newpixel);
+			}
+		}
+	}
 	// aufgabe 4.3.a
 	public static void brightness_print() {
 		int sum = 0;
@@ -513,6 +587,17 @@ public final class bmp_io {
 				graustufen();
 				bmp.image = new_rgbImage;
 				gradient();
+			}
+			else if (args[2].compareTo("gradient_filter_diff") == 0) {
+				graustufen();
+				bmp.image = new_rgbImage;
+				gradient_diff();
+			}
+			else if (args[2].compareTo("median") == 0) {
+				int range = args.length == 4 ? Integer.parseInt(args[3]) : 3;
+				graustufen();
+				bmp.image = new_rgbImage;
+				median(range);
 			}
 		}
 		
