@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public final class bmp_io {
 	public static String inFilename = null;
@@ -189,34 +191,22 @@ public final class bmp_io {
 		for (int y = 0; y < bmp.image.getHeight(); y++) {
 			for (int x = 0; x < bmp.image.getWidth(); x++) {
 				// ********* Done ***************
-				HashMap<PixelColor, Integer> colors = new HashMap<>();
+				List<PixelColor> colors = new ArrayList<>();
 				for (int nx = -range; nx <= range; nx ++) {
 					for (int ny = -range; ny <= range; ny ++) {
 						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
 						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
 						var neighborPixel = bmp.image.getRgbPixel(x + nx, y + ny);
-						var field = colors.get(neighborPixel);
-						if (field != null) {
-							field ++;
-						}
-						else {
-							colors.put(neighborPixel, 1);
-						}
-					}
-				}
-				PixelColor newpixel = null;
-				int count = 0;
-				for (var color : colors.keySet()) {
-					if (colors.get(color) > count) {
-						count = colors.get(color);
-						newpixel = color;
+						colors.add(neighborPixel);
 					}
 				}
 
-				if (newpixel == null) {
-					throw new Error("pixel not here");
-				}
-				
+				colors.sort((c1, c2) -> {
+					int brightness1 = c1.r;
+					int brightness2 = c2.r;
+					return brightness1 - brightness2;
+				});
+				PixelColor newpixel = colors.get(colors.size() / 2);
 				new_rgbImage.setRgbPixel(x, y, newpixel);
 			}
 		}
