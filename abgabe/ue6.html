@@ -237,6 +237,47 @@
         }
     </pre>
 
+    <pre>
+        public static void gradient_diff() {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    // ********* Done ***************
+                    double r = 0;
+                    double g = 0;
+                    double b = 0;
+                    int sum = 0;
+                    int range = 1;
+                    double[][] weightMap = {
+                        { 0,-2, 0},
+                        {-2,12,-2},
+                        { 0,-2, 0},
+                    };
+                    for (int nx = -range; nx <= range; nx ++) {
+                        for (int ny = -range; ny <= range; ny ++) {
+                            if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+                            if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+                            var weight = weightMap[ny + range][nx + range];
+                            sum += weight;
+                            var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+                            r += pixel.r * weight;
+                            g += pixel.g * weight;
+                            b += pixel.b * weight;
+                        }
+                    }
+                    PixelColor gradientPixel = new PixelColor(r / sum, g / sum, b / sum);
+                    PixelColor pixel = bmp.image.getRgbPixel(x, y);
+                    PixelColor newpixel = new PixelColor(
+                        128 + (pixel.r - gradientPixel.r),
+                        128 + (pixel.g - gradientPixel.g),
+                        128 + (pixel.b - gradientPixel.b)
+                    );
+                    
+                    new_rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
+
     <h2>b)</h2>
     <div class="gallery">
         <div class="gallery-item">
@@ -341,6 +382,34 @@
             <img src="./aufgabe6-images/Manmade_Gruppe4_kaputt_median_9.bmp" alt="">
         </div>
     </div>
+
+    <h3>Median Code:</h3>
+    <pre>
+        public static void median(int range) {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    // ********* Done ***************
+                    List<PixelColor> colors = new ArrayList<>();
+                    for (int nx = -range; nx <= range; nx ++) {
+                        for (int ny = -range; ny <= range; ny ++) {
+                            if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+                            if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+                            var neighborPixel = bmp.image.getRgbPixel(x + nx, y + ny);
+                            colors.add(neighborPixel);
+                        }
+                    }
+    
+                    colors.sort((c1, c2) -> {
+                        int brightness1 = c1.r;
+                        int brightness2 = c2.r;
+                        return brightness1 - brightness2;
+                    });
+                    PixelColor newpixel = colors.get(colors.size() / 2);
+                    new_rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
 </body>
 
 </html>
