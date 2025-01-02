@@ -218,7 +218,6 @@ public final class bmp_io {
 				double r = 0;
 				double g = 0;
 				double b = 0;
-				int sum = 0;
 				int range = 1;
 				double[][] weightMap;
 				if (vertical) {
@@ -240,7 +239,6 @@ public final class bmp_io {
 						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
 						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
 						var weight = weightMap[ny + range][nx + range];
-						sum += weight;
 						var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
 						r += pixel.r * weight;
 						g += pixel.g * weight;
@@ -633,8 +631,8 @@ public final class bmp_io {
 			}
 			else if (args[2].compareTo("sobelfilter") == 0) {
 				String hv = args.length == 4 ? args[3] : "horizontal";
-				graustufen();
-				bmp.image = new_rgbImage;
+				// graustufen();
+				// bmp.image = new_rgbImage;
 				sobelfilter(hv.equals("vertikal"));
 			}
 		}
