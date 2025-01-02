@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "gitacp",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "git add . && git commit -m '${input:commitMessage}' && git push"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "echo": true,
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "commitMessage",
+            "type": "promptString",
+            "description": "Enter the commit message (use full sentences if needed)"
+        }
+    ]
+}
