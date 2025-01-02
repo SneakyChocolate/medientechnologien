@@ -52,9 +52,9 @@ source .gradlerun.sh
 # gradlerun Manmade_Gruppe4_kaputt median "3" "aufgabe6-images" &&
 # gradlerun Manmade_Gruppe4_kaputt median "9" "aufgabe6-images"
 
-gradlerun Nature_Gruppe4 sobelfilter "v" "aufgabe6-images" &&
-gradlerun Nature_Gruppe4 sobelfilter "h" "aufgabe6-images" &&
+gradlerun Nature_Gruppe4 sobelfilter "vertikal" "aufgabe6-images" &&
+gradlerun Nature_Gruppe4 sobelfilter "horizontal" "aufgabe6-images" &&
 
-gradlerun Manmade_Gruppe4 sobelfilter "v" "aufgabe6-images" &&
-gradlerun Manmade_Gruppe4 sobelfilter "h" "aufgabe6-images"
+gradlerun Manmade_Gruppe4 sobelfilter "vertikal" "aufgabe6-images" &&
+gradlerun Manmade_Gruppe4 sobelfilter "horizontal" "aufgabe6-images"
 

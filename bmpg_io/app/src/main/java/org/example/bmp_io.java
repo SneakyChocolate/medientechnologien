@@ -635,7 +635,7 @@ public final class bmp_io {
 				String hv = args.length == 4 ? args[3] : "horizontal";
 				graustufen();
 				bmp.image = new_rgbImage;
-				sobelfilter(hv.equals("vertical"));
+				sobelfilter(hv.equals("vertikal"));
 			}
 		}
 		
