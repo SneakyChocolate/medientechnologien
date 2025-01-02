@@ -413,10 +413,10 @@
     <h2>Original:</h2>
     <div class="gallery">
         <div class="gallery-item">
-            <img src="./aufgabe6-images/Nature_Gruppe4_graustufen_.bmp" alt="">
+            <img src="./pics/Nature_Gruppe4.bmp" alt="">
         </div>
         <div class="gallery-item">
-            <img src="./aufgabe6-images/Manmade_Gruppe4_graustufen_.bmp" alt="">
+            <img src="pics/Manmade_Gruppe4.bmp" alt="">
         </div>
     </div>
 
@@ -441,8 +441,47 @@
     </div>
 
     <h3>Sobelfilter Code:</h3>
-    <h4>vertikal:</h4>
-    <h4>horizontal:</h4>
+    <pre>
+        public static void sobelfilter(boolean vertical) {
+            for (int y = 0; y < bmp.image.getHeight(); y++) {
+                for (int x = 0; x < bmp.image.getWidth(); x++) {
+                    double r = 0;
+                    double g = 0;
+                    double b = 0;
+                    int range = 1;
+                    double[][] weightMap;
+                    if (vertical) {
+                        weightMap = new double[][]{
+                            {1,0,-1},
+                            {2,0,-2},
+                            {1,0,-1},
+                        };
+                    }
+                    else {
+                        weightMap = new double[][]{
+                            {1 ,2 ,1},
+                            {0 ,0 ,0},
+                            {-1,-2,-1},
+                        };
+                    }
+                    for (int nx = -range; nx <= range; nx ++) {
+                        for (int ny = -range; ny <= range; ny ++) {
+                            if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+                            if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+                            var weight = weightMap[ny + range][nx + range];
+                            var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+                            r += pixel.r * weight;
+                            g += pixel.g * weight;
+                            b += pixel.b * weight;
+                        }
+                    }
+                    PixelColor newpixel = new PixelColor(r, g, b);
+                    
+                    new_rgbImage.setRgbPixel(x, y, newpixel);
+                }
+            }
+        }
+    </pre>
 </body>
 
 </html>
