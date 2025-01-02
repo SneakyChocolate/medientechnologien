@@ -1,10 +1,10 @@
 
 source .gradlerun.sh
 
-gradlerun Nature_Gruppe4 graustufen "" "aufgabe6-images" &&
-gradlerun Manmade_Gruppe4 graustufen "" "aufgabe6-images" &&
-gradlerun Nature_Gruppe4_kaputt graustufen "" "aufgabe6-images" &&
-gradlerun Manmade_Gruppe4_kaputt graustufen "" "aufgabe6-images" &&
+# gradlerun Nature_Gruppe4 graustufen "" "aufgabe6-images" &&
+# gradlerun Manmade_Gruppe4 graustufen "" "aufgabe6-images" &&
+# gradlerun Nature_Gruppe4_kaputt graustufen "" "aufgabe6-images" &&
+# gradlerun Manmade_Gruppe4_kaputt graustufen "" "aufgabe6-images" &&
 
 # gradlerun Nature_Gruppe4 blur "1" "aufgabe6-images"
 # gradlerun Nature_Gruppe4 blur "2" "aufgabe6-images"
@@ -47,8 +47,14 @@ gradlerun Manmade_Gruppe4_kaputt graustufen "" "aufgabe6-images" &&
 # gradlerun Nature_Gruppe4_kaputt median "3" "aufgabe6-images" &&
 # gradlerun Nature_Gruppe4_kaputt median "9" "aufgabe6-images" &&
 
-gradlerun Manmade_Gruppe4_kaputt median "1" "aufgabe6-images" &&
-gradlerun Manmade_Gruppe4_kaputt median "2" "aufgabe6-images" &&
-gradlerun Manmade_Gruppe4_kaputt median "3" "aufgabe6-images" &&
-gradlerun Manmade_Gruppe4_kaputt median "9" "aufgabe6-images"
+# gradlerun Manmade_Gruppe4_kaputt median "1" "aufgabe6-images" &&
+# gradlerun Manmade_Gruppe4_kaputt median "2" "aufgabe6-images" &&
+# gradlerun Manmade_Gruppe4_kaputt median "3" "aufgabe6-images" &&
+# gradlerun Manmade_Gruppe4_kaputt median "9" "aufgabe6-images"
+
+gradlerun Nature_Gruppe4 sobelfilter "v" "aufgabe6-images" &&
+gradlerun Nature_Gruppe4 sobelfilter "h" "aufgabe6-images" &&
+
+gradlerun Manmade_Gruppe4 sobelfilter "v" "aufgabe6-images" &&
+gradlerun Manmade_Gruppe4 sobelfilter "h" "aufgabe6-images"
 

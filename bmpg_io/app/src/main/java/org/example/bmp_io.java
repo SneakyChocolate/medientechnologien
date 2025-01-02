@@ -211,6 +211,48 @@ public final class bmp_io {
 			}
 		}
 	}
+	public static void sobelfilter(boolean vertical) {
+		for (int y = 0; y < bmp.image.getHeight(); y++) {
+			for (int x = 0; x < bmp.image.getWidth(); x++) {
+				// ********* Done ***************
+				double r = 0;
+				double g = 0;
+				double b = 0;
+				int sum = 0;
+				int range = 1;
+				double[][] weightMap;
+				if (vertical) {
+					weightMap = new double[][]{
+						{1,0,-1},
+						{2,0,-2},
+						{1,0,-1},
+					};
+				}
+				else {
+					weightMap = new double[][]{
+						{1 ,2 ,1},
+						{0 ,0 ,0},
+						{-1,-2,-1},
+					};
+				}
+				for (int nx = -range; nx <= range; nx ++) {
+					for (int ny = -range; ny <= range; ny ++) {
+						if (x + nx < 0 || x + nx >= bmp.image.getWidth()) continue;
+						if (y + ny < 0 || y + ny >= bmp.image.getHeight()) continue;
+						var weight = weightMap[ny + range][nx + range];
+						sum += weight;
+						var pixel = bmp.image.getRgbPixel(x + nx, y + ny);
+						r += pixel.r * weight;
+						g += pixel.g * weight;
+						b += pixel.b * weight;
+					}
+				}
+				PixelColor newpixel = new PixelColor(r, g, b);
+				
+				new_rgbImage.setRgbPixel(x, y, newpixel);
+			}
+		}
+	}
 	// aufgabe 4.3.a
 	public static void brightness_print() {
 		int sum = 0;
@@ -588,6 +630,12 @@ public final class bmp_io {
 				graustufen();
 				bmp.image = new_rgbImage;
 				median(range);
+			}
+			else if (args[2].compareTo("sobelfilter") == 0) {
+				String hv = args.length == 4 ? args[3] : "horizontal";
+				graustufen();
+				bmp.image = new_rgbImage;
+				sobelfilter(hv.equals("vertical"));
 			}
 		}
 		
