@@ -1,14 +1,14 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=a2ae55484880491b14846d4c2225d176d82eab28
-arguments=--init-script /home/linuxbrew/.linuxbrew/Cellar/jdtls/1.42.0/libexec/configuration/org.eclipse.osgi/58/0/.cp/gradle/init/init.gradle
+arguments=--init-script /home/linuxbrew/.linuxbrew/Cellar/jdtls/1.43.0/libexec/configuration/org.eclipse.osgi/58/0/.cp/gradle/init/init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(8.9))
-connection.project.dir=..
+connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=/usr/lib/jvm/java-21-openjdk-amd64
+java.home=/usr/lib/jvm/java-21-openjdk-21.0.5.0.11-1.fc41.x86_64
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true
